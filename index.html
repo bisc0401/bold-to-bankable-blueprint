@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Career-to-Creator Freedom Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1923;
+    --navy-mid: #1a2b38;
+    --teal: #00C9A7;
+    --gold: #C9A84C;
+    --gold-light: #e8c96a;
+    --cream: #F5F0E8;
+    --cream-dark: #EDE8DF;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+    --white: #ffffff;
+    --card-border: #ddd8ce;
+    --selected-bg: #0F1923;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand { color: var(--white); font-size: 14px; font-weight: 500; }
+  .nav-brand span { color: var(--gold); font-style: italic; font-size: 12px; margin-left: 6px; }
+  .nav-title { color: rgba(255,255,255,0.6); font-size: 13px; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    text-align: center;
+    padding: 52px 24px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(0,201,167,0.04);
+    top: -80px;
+  }
+  .hero::before { left: -80px; }
+  .hero::after { right: -80px; top: -40px; background: rgba(201,168,76,0.04); }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+    font-size: 42px;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    margin-top: 14px;
+    line-height: 1.6;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* TABS */
+  .tabs-wrap {
+    background: var(--cream);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--cream-dark);
+  }
+  .tabs {
+    display: flex;
+    gap: 0;
+    background: var(--cream);
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 900px;
+  }
+  .tab {
+    flex: 1;
+    padding: 15px 12px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+  }
+  .tab.active {
+    background: none;
+    color: var(--navy);
+    border-bottom: 3px solid var(--gold);
+    font-weight: 700;
+  }
+  .tab.locked {
+    color: rgba(0,0,0,0.2);
+    cursor: not-allowed;
+  }
+  .tab-icon { font-size: 13px; }
+
+  /* MAIN */
+  .main { max-width: 860px; margin: 0 auto; padding: 36px 24px 60px; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+
+  /* SKILL GRID */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .skill-card {
+    background: var(--white);
+    border: 1.5px solid var(--card-border);
+    border-radius: 12px;
+    padding: 18px 14px 16px;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-align: center;
+  }
+  .skill-card:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,201,167,0.12); }
+  .skill-card.selected { background: var(--navy); border-color: var(--navy); }
+  .skill-card.selected .skill-name { color: var(--white); }
+  .skill-card.selected .skill-desc { color: rgba(255,255,255,0.55); }
+  .skill-emoji { font-size: 26px; margin-bottom: 8px; display: block; }
+  .skill-name { font-size: 13px; font-weight: 600; color: var(--text-dark); line-height: 1.3; margin-bottom: 4px; }
+  .skill-desc { font-size: 11px; color: var(--text-light); line-height: 1.4; }
+
+  /* CUSTOM INPUT */
+  .custom-box {
+    border: 1.5px dashed var(--card-border);
+    border-radius: 12px;
+    padding: 20px 20px 16px;
+    background: var(--white);
+    margin-bottom: 28px;
+  }
+  .custom-box label { font-size: 13px; font-weight: 600; color: var(--text-dark); display: block; margin-bottom: 10px; }
+  .custom-box input {
+    width: 100%;
+    border: 1.5px solid var(--card-border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .custom-box input:focus { border-color: var(--teal); }
+
+  /* PLATFORM SECTION */
+  .platform-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+  }
+  .platform-section p {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .platform-card {
+    background: var(--white);
+    border: 1.5px solid var(--card-border);
+    border-radius: 10px;
+    padding: 14px 10px 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.18s;
+  }
+  .platform-card:hover { border-color: var(--teal); }
+  .platform-card.selected { background: var(--navy); border-color: var(--navy); }
+  .platform-card.selected .platform-name { color: var(--white); }
+  .platform-card.selected .platform-desc { color: rgba(255,255,255,0.5); }
+  .platform-emoji { font-size: 22px; margin-bottom: 6px; display: block; }
+  .platform-name { font-size: 12px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
+  .platform-desc { font-size: 11px; color: var(--text-light); }
+
+  /* CTA BUTTON */
+  .cta-btn {
+    background: #C9A84C;
+    color: #0F1923;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: block;
+    box-shadow: 0 4px 18px rgba(201,168,76,0.35);
+  }
+  .cta-btn:hover { background: #e8c96a; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.5); }
+  .cta-btn:disabled { background: #C9A84C; opacity: 1; color: #0F1923; cursor: not-allowed; transform: none; box-shadow: 0 4px 18px rgba(201,168,76,0.35); }
+
+  /* REPORT PAGES */
+  .report-section { display: none; }
+  .report-section.active { display: block; }
+
+  /* PRODUCT SUITE */
+  .report-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .report-badge {
+    background: var(--navy);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .report-expertise {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  .report-expertise strong { color: var(--text-dark); }
+
+  .product-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .product-card {
+    border-radius: 14px;
+    padding: 22px 20px;
+    position: relative;
+  }
+  .product-card.core { background: var(--navy); color: var(--white); }
+  .product-card.bump { background: var(--white); border: 1.5px solid var(--card-border); }
+  .product-card.upsell { background: var(--white); border: 1.5px solid var(--card-border); }
+  .product-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .product-card.core .product-label { color: var(--teal); }
+  .product-card.bump .product-label, .product-card.upsell .product-label { color: var(--gold); }
+  .product-label-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .product-card.core .product-title { color: var(--white); }
+  .product-price {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 12px 0 6px;
+  }
+  .product-card.core .product-price { color: var(--gold); }
+  .product-card.bump .product-price, .product-card.upsell .product-price { color: var(--navy); }
+  .product-desc {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .product-card.core .product-desc { color: rgba(255,255,255,0.65); }
+  .product-card.bump .product-desc, .product-card.upsell .product-desc { color: var(--text-light); }
+
+  .additional-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .additional-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .add-card {
+    background: var(--white);
+    border: 1.5px solid var(--card-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .add-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .add-name { font-size: 13px; font-weight: 500; color: var(--text-dark); line-height: 1.4; }
+  .add-price { font-size: 15px; font-weight: 700; color: var(--navy); white-space: nowrap; padding-left: 10px; }
+
+  /* FUNNEL PLAN */
+  .funnel-summary {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .funnel-summary-left h3 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 18px; margin-bottom: 4px; }
+  .funnel-summary-left p { color: rgba(255,255,255,0.55); font-size: 13px; }
+  .funnel-revenue { text-align: right; }
+  .funnel-revenue .amount { font-size: 32px; font-weight: 700; color: var(--gold); }
+  .funnel-revenue .label { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  .funnel-steps { margin-bottom: 32px; }
+  .funnel-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-body h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; color: var(--text-dark); }
+  .step-body p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+  .platform-highlight {
+    background: #f0fdf9;
+    border: 1.5px solid rgba(0,201,167,0.25);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .platform-highlight .emoji { font-size: 28px; }
+  .platform-highlight h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .platform-highlight p { font-size: 13px; color: var(--text-light); }
+
+  /* 30-DAY PLANNER */
+  .week-block { margin-bottom: 32px; }
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--cream-dark);
+  }
+  .week-badge {
+    background: var(--navy);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  .week-theme { font-size: 18px; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--text-dark); }
+
+  .day-list { display: flex; flex-direction: column; gap: 10px; }
+  .day-item {
+    background: var(--white);
+    border: 1.5px solid var(--card-border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .day-check {
+    width: 17px;
+    height: 17px;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--white);
+    transition: all 0.15s;
+    position: relative;
+  }
+  .day-check:checked {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .day-check:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--gold);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+  .day-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    width: 28px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .day-text { font-size: 13px; color: var(--text-dark); line-height: 1.5; }
+
+  .week-affirmation {
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: var(--navy);
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    border-left: 3px solid var(--gold);
+  }
+
+  /* REPORT NAV */
+  .report-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .nav-btn {
+    background: none;
+    border: 1.5px solid var(--card-border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .nav-btn.primary { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 700; }
+  .nav-btn.primary:hover { background: var(--gold-light); border-color: var(--gold-light); box-shadow: 0 4px 14px rgba(201,168,76,0.4); }
+  .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* PRINT BUTTON */
+  .print-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  .print-btn {
+    background: var(--teal);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .print-btn:hover { background: #00b496; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+  footer strong { color: var(--gold); }
+
+  /* LOADING */
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,25,35,0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .loading-overlay.show { display: flex; }
+  .spinner {
+    width: 44px; height: 44px;
+    border: 3px solid rgba(255,255,255,0.15);
+    border-top-color: var(--teal);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text { color: var(--white); font-size: 15px; font-weight: 500; }
+  .loading-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  @media (max-width: 700px) {
+    .skill-grid { grid-template-columns: repeat(2, 1fr); }
+    .platform-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-row { grid-template-columns: 1fr; }
+    .additional-grid { grid-template-columns: 1fr; }
+    nav { padding: 12px 16px; }
+    .main { padding: 24px 16px 48px; }
+    .hero h1 { font-size: 28px; }
+    .hero h1 em { font-size: 32px; }
+    .tabs { flex-wrap: wrap; border-radius: 14px; }
+  }
+
+  /* ── EMAIL GATE MODAL ── */
+  .email-gate-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,25,35,0.82);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .email-gate-overlay.show { display: flex; }
+  .email-gate-box {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 40px 36px 36px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  }
+  .email-gate-top {
+    height: 5px;
+    background: linear-gradient(90deg, #0F1923 0%, #00C9A7 50%, #C9A84C 100%);
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    border-radius: 18px 18px 0 0;
+  }
+  .email-gate-badge {
+    display: inline-block;
+    background: rgba(0,201,167,0.1);
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .email-gate-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .email-gate-box h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .email-gate-box p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .email-gate-field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .email-gate-field input {
+    width: 100%;
+    border: 1.5px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .email-gate-field input:focus { border-color: var(--teal); }
+  .email-gate-field input.error { border-color: #e05555; }
+  .email-gate-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold) 0%, #e8c96a 50%, var(--gold) 100%);
+    background-size: 200% auto;
+    color: var(--navy);
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 18px rgba(201,168,76,0.3);
+    margin-bottom: 12px;
+  }
+  .email-gate-submit:hover { background-position: right center; box-shadow: 0 6px 24px rgba(201,168,76,0.45); transform: translateY(-1px); }
+  .email-gate-privacy {
+    font-size: 11px;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .email-gate-error {
+    font-size: 12px;
+    color: #e05555;
+    margin-top: -8px;
+    display: none;
+  }
+  .email-gate-error.show { display: block; }
+
+  /* ── WAITLIST CTA ── */
+  .waitlist-cta {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 40px 36px;
+    margin-top: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .waitlist-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0F1923 0%, #00C9A7 50%, #C9A84C 100%);
+  }
+  .waitlist-badge {
+    display: inline-block;
+    background: rgba(0,201,167,0.12);
+    border: 1px solid rgba(0,201,167,0.3);
+    border-radius: 999px;
+    padding: 5px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+  }
+  .waitlist-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .waitlist-cta h3 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .waitlist-cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+  .waitlist-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold) 0%, #e8c96a 50%, var(--gold) 100%);
+    background-size: 200% auto;
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 18px rgba(201,168,76,0.35);
+    letter-spacing: 0.02em;
+  }
+  .waitlist-btn:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.5);
+  }
+  .waitlist-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 14px;
+  }
+
+  /* ── AI RETRY NOTICE ── */
+  .ai-retry-notice {
+    display: none;
+    background: #fff8ed;
+    border: 1.5px solid #C9A84C;
+    border-left: 5px solid #C9A84C;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #4a3c15;
+    line-height: 1.6;
+  }
+  .ai-retry-notice.show { display: flex; gap: 12px; align-items: flex-start; }
+  .ai-retry-icon { font-size: 20px; flex-shrink: 0; }
+  .ai-retry-text p { margin-bottom: 8px; }
+  .ai-retry-btn {
+    background: #0F1923;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .ai-retry-btn:hover { background: #1a3040; }
+
+  /* Print cover hidden on screen */
+  .print-cover { display: none; }
+
+  /* Revenue explainer box */
+  .revenue-explainer {
+    background: var(--cream);
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .revenue-explainer strong { color: var(--text-dark); }
+  .revenue-explainer .rev-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    font-size: 12px;
+  }
+  .revenue-explainer .rev-row:last-of-type { border-bottom: none; }
+  .revenue-explainer .rev-label { color: var(--text-mid); }
+  .revenue-explainer .rev-price { font-weight: 700; color: var(--navy); }
+  .revenue-explainer .rev-note { color: var(--text-light); font-size: 11px; font-style: italic; }
+  .revenue-explainer .rev-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+  }
+  .revenue-explainer .rev-total-amount { color: var(--gold); font-size: 16px; }
+
+  /* Info icon + tooltip */
+  .info-wrap { position: relative; display: inline-flex; align-items: center; top: -4px; }
+  .info-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1.5px solid rgba(201,168,76,0.7);
+    color: var(--gold); font-size: 12px; font-weight: 700;
+    font-style: normal; cursor: pointer; flex-shrink: 0;
+    transition: all 0.2s; line-height: 1; user-select: none;
+  }
+  .info-icon:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); }
+  .info-tooltip {
+    display: none; position: absolute; right: 0; top: 30px; width: 260px;
+    background: var(--white); border: 1.5px solid var(--card-border);
+    border-top: 3px solid var(--gold); border-radius: 10px;
+    padding: 14px 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); z-index: 50; text-align: left;
+  }
+  .info-tooltip.open { display: block; }
+  .info-tooltip .tt-title { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .info-tooltip .tt-row { display: flex; justify-content: space-between; font-size: 11px; padding: 4px 0; border-bottom: 1px solid var(--cream-dark); color: var(--text-mid); }
+  .info-tooltip .tt-row:last-of-type { border-bottom: none; }
+  .info-tooltip .tt-price { font-weight: 700; color: var(--navy); }
+  .info-tooltip .tt-total { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--navy); margin-top: 8px; padding-top: 8px; border-top: 2px solid var(--navy); }
+  .info-tooltip .tt-total-amt { color: var(--gold); font-size: 14px; }
+  .info-tooltip .tt-note { font-size: 10px; color: var(--text-light); margin-top: 8px; line-height: 1.5; font-style: italic; }
+
+  /* Ad disclaimer */
+  .ad-disclaimer {
+    background: #fff8ed; border: 1.5px solid #e8c96a;
+    border-left: 4px solid var(--gold); border-radius: 10px;
+    padding: 14px 18px; margin-top: 16px; margin-bottom: 0;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .ad-disclaimer-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .ad-disclaimer p { font-size: 12px; color: #6b5a2a; line-height: 1.6; margin: 0; }
+  .ad-disclaimer strong { color: #4a3c15; font-weight: 700; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    @page { margin: 0.55in 0.5in; size: letter portrait; }
+    html, body { background: #F5F0E8 !important; margin: 0 !important; padding: 0 !important; }
+    .main { padding: 0 !important; max-width: 100% !important; }
+
+    /* Hide screen UI and selection page */
+    nav, .tabs-wrap, .report-nav, .print-row, .ad-disclaimer, footer,
+    .loading-overlay, .info-wrap, .info-tooltip, .info-icon,
+    #section0 { display: none !important; }
+
+    /* Show cover page */
+    .print-cover {
+      display: flex !important;
+      flex-direction: column;
+      width: 100%;
+      min-height: 100vh;
+      background: #0F1923 !important;
+      page-break-after: always;
+    }
+
+    /* Show all report sections */
+    .report-section { display: block !important; }
+    #section1 { page-break-after: always; }
+    #section2 { page-break-after: always; }
+    #section3 { page-break-after: avoid; }
+
+    /* Gradient accent bar at top of each section */
+    .report-section::before {
+      content: '';
+      display: block;
+      height: 5px;
+      background: linear-gradient(90deg, #0F1923 0%, #00C9A7 50%, #C9A84C 100%);
+      margin-bottom: 18px;
+    }
+    /* Footer credit line on each section */
+    .report-section::after {
+      content: 'Bold To Bankable2   B7  Career-to-Creator Freedom Blueprint   B7   A9 Letitia Harris';
+      display: block;
+      font-size: 9px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 8px;
+      border-top: 1px solid #ddd;
+    }
+
+    .report-badge { background: #0F1923 !important; color: #00C9A7 !important; padding: 5px 14px !important; border-radius: 999px !important; font-size: 10px !important; }
+
+    /* Product cards */
+    .product-card.core { background: #0F1923 !important; border-radius: 12px !important; padding: 18px !important; }
+    .product-card.core .product-label { color: #00C9A7 !important; }
+    .product-card.core .product-title { color: white !important; }
+    .product-card.core .product-price { color: #C9A84C !important; }
+    .product-card.core .product-desc { color: rgba(255,255,255,0.7) !important; }
+    .product-card.bump, .product-card.upsell { background: white !important; border: 1.5px solid #ddd8ce !important; border-radius: 12px !important; padding: 18px !important; }
+    .product-card.bump .product-label, .product-card.upsell .product-label { color: #C9A84C !important; }
+    .product-card.bump .product-price, .product-card.upsell .product-price { color: #0F1923 !important; }
+    .add-card { background: white !important; border: 1.5px solid #ddd8ce !important; border-radius: 10px !important; padding: 12px 14px !important; }
+    .add-type { color: #C9A84C !important; }
+    .add-price { color: #0F1923 !important; }
+    .product-row { page-break-inside: avoid; }
+
+    /* Funnel */
+    .funnel-summary { background: #0F1923 !important; border-radius: 12px !important; padding: 20px 24px !important; }
+    .funnel-summary h3 { color: white !important; }
+    .funnel-summary p { color: rgba(255,255,255,0.6) !important; }
+    .funnel-revenue .amount { color: #C9A84C !important; }
+    .funnel-revenue .label { color: rgba(255,255,255,0.5) !important; }
+    .step-num { background: #0F1923 !important; color: white !important; border-radius: 50% !important; }
+    .platform-highlight { background: #f0fdf9 !important; border: 1.5px solid rgba(0,201,167,0.3) !important; border-radius: 12px !important; }
+    .revenue-explainer { background: #F5F0E8 !important; border: 1.5px solid #ddd8ce !important; border-radius: 10px !important; padding: 14px 18px !important; }
+    .rev-total { border-top: 2px solid #0F1923 !important; }
+    .rev-total-amt { color: #C9A84C !important; }
+
+    /* Planner - all 30 days */
+    .week-badge { background: #0F1923 !important; color: #00C9A7 !important; border-radius: 999px !important; padding: 4px 14px !important; }
+    .week-theme { color: #0F1923 !important; }
+    .week-block { margin-bottom: 18px; }
+    .day-list { display: flex; flex-direction: column; gap: 5px; }
+    .day-item { background: white !important; border: 1px solid #ddd8ce !important; border-radius: 7px !important; padding: 8px 12px !important; page-break-inside: avoid !important; display: flex !important; align-items: flex-start !important; gap: 10px !important; }
+    .day-num { color: #C9A84C !important; font-weight: 700 !important; font-size: 11px !important; min-width: 26px; }
+    .day-text { font-size: 12px !important; line-height: 1.45 !important; }
+    .day-check { width: 14px !important; height: 14px !important; border: 1.5px solid #C9A84C !important; border-radius: 3px !important; background: white !important; flex-shrink: 0 !important; -webkit-print-color-adjust: exact !important; }
+    .week-affirmation { background: #0F1923 !important; border-left: 4px solid #C9A84C !important; border-radius: 8px !important; color: rgba(255,255,255,0.85) !important; padding: 10px 14px !important; page-break-inside: avoid !important; font-size: 12px !important; margin-top: 8px !important; }
+  }
+</style>
+
+<style>
+  /* ── GHL INTERACTION FIXES ── */
+  .skill-card,
+  .platform-card {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 10 !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+  .skill-grid,
+  .platform-grid {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  .skill-card:active,
+  .platform-card:active {
+    transform: scale(0.97) !important;
+  }
+  .main {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  /* Prevent GHL invisible overlays from blocking clicks */
+  .skill-card * ,
+  .platform-card * {
+    pointer-events: none !important;
+  }
+  .skill-card,
+  .platform-card {
+    pointer-events: auto !important;
+  }
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loadingText">Building your personalized blueprint…</div>
+  <div class="loading-sub" id="loadingSub">Matching your expertise to digital products</div>
+</div>
+
+<!-- EMAIL GATE MODAL -->
+<div class="email-gate-overlay" id="emailGate">
+  <div class="email-gate-box">
+    <div class="email-gate-top"></div>
+    <div class="email-gate-badge">One Last Step</div>
+    <h2>You have spent years building expertise.<br><em>It is time to build something for yourself.</em></h2>
+    <p style="font-size:13px;color:#4a4a4a;line-height:1.7;margin-bottom:20px;">Your personalized blueprint is ready &mdash; including the exact digital products your expertise can create, a funnel that earns while you sleep, and a 30-day plan to get your first sale. Enter your name and email to unlock it now.</p>
+    <div class="email-gate-field">
+      <input type="text" id="gateName" placeholder="First name" autocomplete="given-name" />
+      <input type="email" id="gateEmail" placeholder="The email you check every day" autocomplete="email" />
+      <div class="email-gate-error" id="gateError">Please enter your name and a valid email address.</div>
+    </div>
+    <button class="email-gate-submit" onclick="submitEmailGate()">Show Me My Blueprint &#8594;</button>
+    <div class="email-gate-privacy">&#128274; No spam. No fluff. Just your personalized plan.<br>You can unsubscribe any time &mdash; no hard feelings.</div>
+  </div>
+</div>
+
+<!-- PRINT-ONLY COVER PAGE -->
+<div class="print-cover" id="printCover">
+  <div style="height:7px;background:linear-gradient(90deg,#0F1923 0%,#00C9A7 50%,#C9A84C 100%);"></div>
+  <div style="padding:18px 44px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);">
+    <div style="color:#C9A84C;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;">Bold To Bankable&#8482; <span style="color:rgba(255,255,255,0.4);font-style:italic;font-size:12px;margin-left:6px;">by Letitia Harris</span></div>
+    <div style="color:rgba(255,255,255,0.35);font-family:'DM Sans',sans-serif;font-size:12px;">Career-to-Creator Freedom Blueprint</div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 44px;text-align:center;">
+    <div style="background:rgba(0,201,167,0.12);border:1px solid rgba(0,201,167,0.3);border-radius:999px;padding:6px 22px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#00C9A7;margin-bottom:36px;">CAREER-TO-CREATOR FREEDOM BLUEPRINT &nbsp;&middot;&nbsp; PERSONALIZED REPORT</div>
+    <div style="font-family:'Playfair Display',serif;font-size:50px;font-weight:700;color:#ffffff;line-height:1.1;margin-bottom:10px;">Your Digital Business</div>
+    <div style="font-family:'Playfair Display',serif;font-size:38px;font-style:italic;color:#C9A84C;margin-bottom:36px;">Personalized Report</div>
+    <div style="width:72px;height:2px;background:linear-gradient(90deg,#00C9A7,#C9A84C);border-radius:2px;margin-bottom:36px;"></div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Your area of expertise</div>
+    <div id="coverExpertise" style="font-family:'Playfair Display',serif;font-size:26px;color:#ffffff;font-weight:700;margin-bottom:44px;"></div>
+    <div style="width:36px;height:1px;background:rgba(255,255,255,0.12);margin-bottom:32px;"></div>
+    <div style="text-align:left;display:inline-block;">
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">What&rsquo;s inside</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:12px;font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.72);"><span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;display:inline-block;flex-shrink:0;"></span>Your Product Suite</div>
+        <div style="display:flex;align-items:center;gap:12px;font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.72);"><span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;display:inline-block;flex-shrink:0;"></span>Your Evergreen Funnel Plan</div>
+        <div style="display:flex;align-items:center;gap:12px;font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.72);"><span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;display:inline-block;flex-shrink:0;"></span>Your 30-Day Action Planner</div>
+        <div style="display:flex;align-items:center;gap:12px;font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.72);"><span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;display:inline-block;flex-shrink:0;"></span>Weekly Affirmations</div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:22px 44px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;"><strong style="color:#C9A84C;">Letitia Harris</strong><br>Business Strategist &middot; Founder, Bold To Bankable&#8482;</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.22);text-align:right;">Career-to-Creator Freedom Blueprint &middot; &copy; Letitia Harris</div>
+  </div>
+  <div style="height:5px;background:linear-gradient(90deg,#C9A84C 0%,#00C9A7 50%,#0F1923 100%);"></div>
+</div>
+
+<nav style="justify-content:center;">
+  <div class="nav-title" style="color:rgba(255,255,255,0.85);font-size:15px;font-weight:600;letter-spacing:0.04em;">Career-to-Creator Freedom Blueprint</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>You&rsquo;re In. Your Blueprint<em>Starts Now</em></h1>
+  <div style="width:60px;height:2px;background:linear-gradient(90deg,#C9A84C,#e8c96a);margin:18px auto 16px;border-radius:2px;"></div>
+  <p style="color:#C9A84C;font-size:17px;font-weight:500;margin:0 auto 14px;max-width:480px;font-family:'Playfair Display',serif;font-style:italic;">Let&rsquo;s turn what you know into income.</p>
+  <p style="color:rgba(255,255,255,0.65);font-size:15px;margin:0 auto;line-height:1.7;max-width:520px;">You&rsquo;ve already done the hard part &mdash; building real experience. Now we&rsquo;re going to package it, structure it, and turn it into something you can actually sell.</p>
+  <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:10px auto 0;max-width:520px;font-style:italic;">Your personalized plan &mdash; including your products, funnel, and 30-day roadmap &mdash; generates instantly as you complete each step below.</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" id="tab0" onclick="goToTab(0)"><span class="tab-icon">①</span> Choose Skill</button>
+    <button class="tab locked" id="tab1" onclick="goToTab(1)"><span class="tab-icon">②</span> Your Products</button>
+    <button class="tab locked" id="tab2" onclick="goToTab(2)"><span class="tab-icon">③</span> Funnel Plan</button>
+    <button class="tab locked" id="tab3" onclick="goToTab(3)"><span class="tab-icon">④</span> 30-Day Planner</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- TAB 0: CHOOSE SKILL -->
+  <div class="report-section active" id="section0">
+    <h2 class="section-title">Select Your Expertise</h2>
+    <p class="section-sub">Choose your expertise to begin generating your personalized offer, funnel, and 30-day plan.</p>
+
+    <p style="font-size:13.5px;font-weight:700;color:#a8841e;margin-top:20px;margin-bottom:10px;letter-spacing:0.04em;">Start here &mdash; this determines your entire blueprint</p>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <span class="skill-emoji">👥</span>
+        <div class="skill-name">HR & People Operations</div>
+        <div class="skill-desc">Recruiting, culture, talent</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">💰</span>
+        <div class="skill-name">Finance & Accounting</div>
+        <div class="skill-desc">Budgets, reporting, CFO</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">📣</span>
+        <div class="skill-name">Marketing & Communications</div>
+        <div class="skill-desc">Brand, campaigns, copy</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">⚙️</span>
+        <div class="skill-name">Operations & Project Mgmt</div>
+        <div class="skill-desc">Process, efficiency, PMO</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🏆</span>
+        <div class="skill-name">Manager / Supervisor / Director</div>
+        <div class="skill-desc">Leadership, teams, strategy</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🩺</span>
+        <div class="skill-name">Healthcare & Wellness</div>
+        <div class="skill-desc">Clinical, admin, wellness</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">📚</span>
+        <div class="skill-name">Education & Training</div>
+        <div class="skill-desc">Teaching, L&D, curriculum</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">💻</span>
+        <div class="skill-name">Technology & IT</div>
+        <div class="skill-desc">Systems, dev, cybersecurity</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">⚖️</span>
+        <div class="skill-name">Legal & Compliance</div>
+        <div class="skill-desc">Policy, risk, contracts</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🤝</span>
+        <div class="skill-name">Sales & Business Dev</div>
+        <div class="skill-desc">Revenue, partnerships, CRM</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🌱</span>
+        <div class="skill-name">Social Work & Counseling</div>
+        <div class="skill-desc">Advocacy, coaching, support</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">📋</span>
+        <div class="skill-name">Executive Assistant & Admin</div>
+        <div class="skill-desc">Coordination, systems, support</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">✝️</span>
+        <div class="skill-name">Ministry & Faith Leadership</div>
+        <div class="skill-desc">Pastoral, coaching, discipleship</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🏡</span>
+        <div class="skill-name">Realtor / Real Estate Broker</div>
+        <div class="skill-desc">Buying, selling, investing</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🎧</span>
+        <div class="skill-name">Customer Service & Client Relations</div>
+        <div class="skill-desc">Support, retention, experience</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-emoji">🛡️</span>
+        <div class="skill-name">Insurance & Financial Services</div>
+        <div class="skill-desc">Sales, policies, planning</div>
+      </div>
+    </div>
+
+    <div class="ai-retry-notice" id="aiRetryNotice">
+      <div class="ai-retry-icon">&#9888;</div>
+      <div class="ai-retry-text">
+        <p><strong>Our AI is taking a moment to think.</strong> This can happen if the connection is slow or the server is busy. Your expertise is not lost — just click the button below to try again.</p>
+        <button class="ai-retry-btn" onclick="retryAiGeneration()">Try Again &#8594;</button>
+      </div>
+    </div>
+    <div class="custom-box">
+      <label>My expertise is not listed — here's what I do:</label>
+      <input type="text" id="customSkill" placeholder="e.g. Supply Chain Manager, Graphic Designer, Event Planner..." oninput="handleCustomSkill()" />
+    </div>
+
+    <div class="platform-section">
+      <h3>Where will you show up consistently?</h3>
+      <p>You don't need to be everywhere &mdash; just choose one platform to start and stay consistent.</p>
+      <div class="platform-grid">
+        <div class="platform-card" data-platform="YouTube">
+          <span class="platform-emoji">🎬</span>
+          <div class="platform-name">YouTube</div>
+          <div class="platform-desc">Tutorial & education videos</div>
+        </div>
+        <div class="platform-card" data-platform="Facebook">
+          <span class="platform-emoji">📘</span>
+          <div class="platform-name">Facebook</div>
+          <div class="platform-desc">Groups, Lives & Ads</div>
+        </div>
+        <div class="platform-card" data-platform="LinkedIn">
+          <span class="platform-emoji">💼</span>
+          <div class="platform-name">LinkedIn</div>
+          <div class="platform-desc">Professional & B2B reach</div>
+        </div>
+        <div class="platform-card" data-platform="Instagram">
+          <span class="platform-emoji">📸</span>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-desc">Reels, Stories & visuals</div>
+        </div>
+        <div class="platform-card" data-platform="TikTok / Reels">
+          <span class="platform-emoji">🎵</span>
+          <div class="platform-name">TikTok / Reels</div>
+          <div class="platform-desc">Short-form viral video</div>
+        </div>
+        <div class="platform-card" data-platform="Podcast">
+          <span class="platform-emoji">🎙️</span>
+          <div class="platform-name">Podcast</div>
+          <div class="platform-desc">Audio for busy listeners</div>
+        </div>
+        <div class="platform-card" data-platform="Email / Blog">
+          <span class="platform-emoji">✉️</span>
+          <div class="platform-name">Email / Blog</div>
+          <div class="platform-desc">Written content & SEO</div>
+        </div>
+        <div class="platform-card" data-platform="Pinterest">
+          <span class="platform-emoji">📌</span>
+          <div class="platform-name">Pinterest</div>
+          <div class="platform-desc">Visual search & evergreen</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:12px;font-style:italic;">Now let's turn this into your offer, funnel, and 30-day plan</p>
+    <button class="cta-btn" id="mainCta" onclick="showEmailGate()" disabled>Build My Offer &amp; Plan &#8594;</button>
+  </div>
+
+  <!-- TAB 1: PRODUCTS -->
+  <div class="report-section" id="section1">
+    <div class="print-row">
+      <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+    </div>
+    <div class="report-header">
+      <div class="report-badge">Your Product Suite</div>
+      <div class="report-expertise">Expertise: <strong id="expertiseLabel1"></strong></div>
+    </div>
+    <p class="section-sub" style="margin-bottom:24px">Everything below can be built from what you already know. No new degrees. No starting over. Just your existing expertise &mdash; finally packaged, priced, and positioned to earn for you.</p>
+    <div class="product-row" id="productRow"></div>
+    <div class="additional-title">Additional Products You Can Create</div>
+    <div class="additional-grid" id="additionalGrid"></div>
+    <div class="report-nav">
+      <button class="nav-btn" onclick="goToTab(0)">← Back</button>
+      <button class="nav-btn primary" onclick="goToTab(2)">Next: Funnel Plan →</button>
+    </div>
+  </div>
+
+  <!-- TAB 2: FUNNEL -->
+  <div class="report-section" id="section2">
+    <div class="print-row">
+      <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+    </div>
+    <div class="report-header">
+      <div class="report-badge">Your Evergreen Funnel Plan</div>
+      <div class="report-expertise">Expertise: <strong id="expertiseLabel2"></strong></div>
+    </div>
+    <div class="funnel-summary">
+      <div class="funnel-summary-left">
+        <h3>Your Recommended Funnel</h3>
+        <p>Three products. One funnel. Built entirely from your expertise.</p>
+      </div>
+      <div class="funnel-revenue">
+        <div class="amount-row" style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">
+          <div class="amount" id="revenueAmount"></div>
+          <div class="info-wrap">
+            <span class="info-icon" onclick="toggleTooltip(event)" title="What does this mean?">i</span>
+            <div class="info-tooltip" id="revenueTooltip">
+              <div class="tt-title">How is this calculated?</div>
+              <div class="tt-row"><span>&#9312; Core Offer <em style="color:#aaa">(all buyers)</em></span><span class="tt-price" id="tt-core"></span></div>
+              <div class="tt-row"><span>&#9313; Bump <em style="color:#aaa">(~35% of buyers)</em></span><span class="tt-price" id="tt-bump"></span></div>
+              <div class="tt-row"><span>&#9314; Upsell <em style="color:#aaa">(~15% of buyers)</em></span><span class="tt-price" id="tt-upsell"></span></div>
+              <div class="tt-total"><span>Blended avg. per buyer</span><span class="tt-total-amt" id="tt-avg"></span></div>
+              <div class="tt-note">Not every buyer takes all 3 steps. This average blends conversion rates across your full funnel.</div>
+            </div>
+          </div>
+        </div>
+        <div class="label">avg. revenue per buyer</div>
+      </div>
+    </div>
+    <div class="revenue-explainer" id="revenueExplainer"></div>
+    <div class="funnel-steps" id="funnelSteps"></div>
+    <div class="platform-highlight" id="platformHighlight"></div>
+    <div class="ad-disclaimer">
+      <div class="ad-disclaimer-icon">&#9888;</div>
+      <p><strong>Paid Advertising Disclaimer:</strong> The ad suggestions referenced in this blueprint are provided as general guidance only. Bold To Bankable&trade; and Letitia Harris are not responsible for any financial loss, poor results, or account issues that may result from running paid advertisements. <strong>Before running any paid ad campaign, please consult a qualified digital marketing or paid advertising professional.</strong></p>
+    </div>
+    <div class="report-nav">
+      <button class="nav-btn" onclick="goToTab(1)">&#8592; Back</button>
+      <button class="nav-btn primary" onclick="goToTab(3)">Next: 30-Day Planner &#8594;</button>
+    </div>
+  </div>
+
+  <!-- TAB 3: PLANNER -->
+  <div class="report-section" id="section3">
+    <div class="print-row">
+      <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+    </div>
+    <div class="report-header">
+      <div class="report-badge">Your 30-Day Corporate Escape Planner</div>
+      <div class="report-expertise">Expertise: <strong id="expertiseLabel3"></strong></div>
+    </div>
+    <p class="section-sub" style="margin-bottom:28px">You did not spend years building expertise to hand it all to someone else forever. These 30 days are yours. Each action moves you one step closer to the business &mdash; and the life &mdash; you have been putting off.</p>
+    <div id="plannerBlocks"></div>
+    <div class="waitlist-cta">
+      <div class="waitlist-badge">Your Next Step</div>
+      <h3>Your blueprint is built.<br>Now let&rsquo;s build <em>your business.</em></h3>
+      <p>You know too much to start over. You&rsquo;ve given too much to stay put. The Bold To Bankable&trade; Academy is where you turn this blueprint into a real digital offer, real online income, and your next chapter &mdash; using AI.</p>
+      <a href="https://www.boldtobankable.com" target="_blank" class="waitlist-btn">Join the Waitlist &rarr;</a>
+    </div>
+    <div class="ad-disclaimer">
+      <div class="ad-disclaimer-icon">&#9888;</div>
+      <p><strong>Paid Advertising Disclaimer:</strong> References to running paid ads in this planner are general suggestions only. Bold To Bankable&trade; and Letitia Harris are not liable for any ad spend, account issues, or financial loss. <strong>Please work with a certified paid advertising professional before launching any ad campaign.</strong></p>
+    </div>
+    <div class="report-nav">
+      <button class="nav-btn" onclick="goToTab(2)">&#8592; Back</button>
+      <button class="nav-btn primary" onclick="startOver()">Start a New Blueprint &#8635;</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p style="font-size:11px;color:rgba(255,255,255,0.35);max-width:760px;margin:0 auto 12px;line-height:1.7;">
+    <strong style="color:rgba(255,255,255,0.5);">Disclaimer:</strong> All product suggestions, funnel strategies, revenue estimates, and action plans in this blueprint are for educational purposes only. Bold To Bankable&trade; and Letitia Harris make no guarantees of financial success or business results. All ideas must be tested and validated. This is not legal or financial advice.
+  </p>
+  <p style="margin-bottom:10px;">
+    <a href="https://www.growthtoolkithub.com/privacy-policy" style="color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none;margin:0 10px;transition:color 0.2s;" onmouseover="this.style.color='#00C9A7'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Privacy Policy</a>
+    <span style="color:rgba(255,255,255,0.15);">|</span>
+    <a href="https://www.growthtoolkithub.com/terms-and-conditions" style="color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none;margin:0 10px;transition:color 0.2s;" onmouseover="this.style.color='#00C9A7'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Terms &amp; Conditions</a>
+    <span style="color:rgba(255,255,255,0.15);">|</span>
+    <a href="/cdn-cgi/l/email-protection#c5acaba3aa85a7aaa9a1a8b0b6a0a4a2a0aba6bceba6aaa8" style="color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none;margin:0 10px;transition:color 0.2s;" onmouseover="this.style.color='#00C9A7'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Contact Us</a>
+  </p>
+  <p>© <strong>Bold To Bankable™</strong> · Bold Muse Agency, LLC · All rights reserved.</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+'use strict';
+
+let selectedSkill = null;
+let selectedPlatform = null;
+let reportData = null;
+
+const SKILL_DATA = {
+  "HR & People Operations": {
+    core: { title: "The HR Expert's Guide to Consulting on Your Own Terms", price: "$37", desc: "Position yourself as an independent HR consultant" },
+    bump: { title: "10 HR Policies Every Small Business Needs", price: "$17", desc: "Done-for-you policy documents" },
+    upsell: { title: "From HR Director to HR Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap for going independent" },
+    additional: [
+      { type: "TEMPLATE", name: "HR Audit Checklist for Small Business Owners", price: "$17" },
+      { type: "TEMPLATE", name: "Employee Onboarding Kit Templates (5-Pack)", price: "$27" },
+      { type: "JOURNAL", name: "The People-First Leader Journal", price: "$19" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your HR Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn posts + sponsored content drives to your freebie opt-in. They download the free resource and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The Transition Blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every HR function you have worked in: recruiting, L&D, compliance, culture",
+        "Circle the ONE area where you have gotten the most results",
+        "Write: I help [who] with [specific HR problem] so they can [result]",
+        "Research 5 small businesses struggling with the HR problem you solve",
+        "List 3 HR questions you get asked constantly, even outside of work",
+        "Choose your core product: policy templates, onboarding kit, or HR audit guide",
+        "Write your credibility paragraph, your years of experience in 5 sentences"
+      ], affirmation: "I spent years developing people. Now it is time to invest in myself." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: HR Starter Kit for small businesses",
+        "Draft your first policy template or onboarding checklist",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what HR consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The cultures I built for others -- I am now building for my own legacy." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share a common HR mistake small businesses make",
+        "Join 2 Facebook groups for small business owners and introduce yourself",
+        "DM 5 entrepreneurs in your network who have HR headaches",
+        "Record a 90-second video: The #1 HR mistake that costs businesses thousands",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My HR expertise is rare, valuable, and exactly what small businesses need." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 HR Policies Every Small Business Needs Before They Hire",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a plug-and-play Employee Handbook template for $17",
+        "Launch a $5/day Facebook ad targeting small business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube videos"
+      ], affirmation: "I know how to hire, lead, and retain talent. I can run my own business." }
+    }
+  },
+
+  "Finance & Accounting": {
+    core: { title: "The Corporate Finance Pro's Guide to Consulting and Fractional CFO Work", price: "$47", desc: "Position yourself as a fractional CFO or financial consultant" },
+    bump: { title: "10-Point Financial Health Checklist for Small Businesses", price: "$17", desc: "Done-for-you audit and diagnostic tool" },
+    upsell: { title: "From Corporate Accountant to Fractional CFO: The Transition Blueprint", price: "$67", desc: "Complete roadmap to land your first consulting client" },
+    additional: [
+      { type: "TEMPLATE", name: "Small Business Budget Spreadsheet Template", price: "$27" },
+      { type: "GUIDE", name: "Cash Flow Management Guide for Entrepreneurs", price: "$37" },
+      { type: "COURSE", name: "Financial Literacy Fundamentals for Business Owners", price: "$97" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Finance Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn posts about financial mistakes entrepreneurs make drive to your freebie opt-in. They download the free resource and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The Fractional CFO Blueprint is their natural next step." }
+    ],
+    revenue: "~$68",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every finance function you have worked in: budgeting, forecasting, auditing, reporting",
+        "Circle the ONE area where you have gotten the most results for organizations",
+        "Write: I help [small business owner type] with [specific finance problem] so they can [result]",
+        "Research 5 small businesses struggling with the financial problem you solve",
+        "List 3 financial questions entrepreneurs ask you constantly, even outside work",
+        "Choose your core product: financial health checklist, budget template, or cash flow guide",
+        "Write your credibility paragraph, your experience in finance in 5 powerful sentences"
+      ], affirmation: "I managed millions for others. Now I am building millions for myself." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Financial Starter Guide for small business owners",
+        "Draft your first budget template or cash flow worksheet",
+        "Add your branding and contact information in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what fractional CFOs and finance consultants charge for similar products",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The reports I built for others -- I am now building my own bottom line." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share the #1 financial mistake small business owners make",
+        "Join 2 Facebook groups for entrepreneurs and introduce yourself as a finance expert",
+        "DM 5 business owners in your network who struggle with money management",
+        "Record a 90-second video: Why your business is bleeding money without knowing it",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneur networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My financial expertise is exactly what small businesses need to survive and thrive." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Numbers Every Small Business Owner Must Track",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a profit and loss template for $17",
+        "Launch a $5/day Facebook ad targeting small business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube or LinkedIn videos"
+      ], affirmation: "I understand money at a level most people never will. That is my superpower." }
+    }
+  },
+
+  "Marketing & Communications": {
+    core: { title: "The Corporate Marketer's Guide to Launching a Marketing Consultancy", price: "$37", desc: "Package your brand and campaign expertise into a consulting offer" },
+    bump: { title: "Social Media Content Calendar Template (90-Day)", price: "$17", desc: "Done-for-you planning and scheduling system" },
+    upsell: { title: "From Marketing Director to Marketing Consultant: The Full Playbook", price: "$67", desc: "Land your first retainer client in 30 days" },
+    additional: [
+      { type: "TEMPLATE", name: "Brand Voice and Messaging Guide Template", price: "$27" },
+      { type: "GUIDE", name: "Email Marketing Quick-Start Guide for Entrepreneurs", price: "$37" },
+      { type: "COURSE", name: "Content Strategy Masterclass for Service Businesses", price: "$97" },
+      { type: "CHECKLIST", name: "Launch Checklist: Take Your Offer From Idea to Sale", price: "$17" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Instagram Reels or LinkedIn content showcasing marketing wins drives to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full consultant playbook is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every marketing function you have led: brand, digital, campaigns, PR, content",
+        "Circle the ONE area where you have gotten the most measurable results",
+        "Write: I help [business type] with [specific marketing problem] so they can [result]",
+        "Research 5 small businesses struggling with the marketing problem you solve",
+        "List 3 marketing questions entrepreneurs ask you constantly",
+        "Choose your core product: content calendar, brand guide template, or launch checklist",
+        "Write your credibility paragraph, your marketing wins in 5 compelling sentences"
+      ], affirmation: "I built brands for others. Now I am building my own." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Marketing Quick-Start Guide for entrepreneurs",
+        "Draft your first content calendar template or brand voice worksheet",
+        "Brand your product with your logo and colors in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what marketing consultants and strategists charge for similar products",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "Every campaign I ran was practice for the business I am building now." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or LinkedIn: share the #1 marketing mistake small businesses make",
+        "Join 2 Facebook groups for entrepreneurs and introduce yourself as a marketing expert",
+        "DM 5 business owners in your network who struggle with visibility or sales",
+        "Record a 90-second video: Why your marketing is not working and how to fix it",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My marketing expertise can change the trajectory of a small business overnight." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Marketing Moves Every Small Business Should Make First",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you social media caption pack for $17",
+        "Launch a $5/day Facebook or Instagram ad targeting small business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 pieces of long-form content"
+      ], affirmation: "I know how to get attention, build trust, and drive action. That is currency." }
+    }
+  },
+
+  "Operations & Project Mgmt": {
+    core: { title: "The Operations Expert's Guide to Consulting on Your Own Terms", price: "$37", desc: "Position yourself as a fractional COO or operations consultant" },
+    bump: { title: "10 Standard Operating Procedures Every Small Business Needs", price: "$17", desc: "Done-for-you SOP templates ready to customize" },
+    upsell: { title: "From Corporate Operations Leader to Independent Consultant: The Blueprint", price: "$67", desc: "Full roadmap to land your first operations consulting client" },
+    additional: [
+      { type: "TEMPLATE", name: "Business Process Audit Checklist", price: "$17" },
+      { type: "TEMPLATE", name: "Project Kickoff and Tracker Template Pack (5-Pack)", price: "$27" },
+      { type: "GUIDE", name: "The Lean Operations Guide for Small Business Owners", price: "$37" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Operations Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn posts about operational inefficiencies costing businesses money drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full consulting transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every operations function you have led: process design, project management, vendor management, systems",
+        "Circle the ONE area where your work created the most measurable efficiency or cost savings",
+        "Write: I help [business type] with [specific operations problem] so they can [result]",
+        "Research 5 small businesses that are clearly drowning in chaos or broken processes",
+        "List 3 operations questions entrepreneurs ask you constantly, even outside of work",
+        "Choose your core product: SOP templates, process audit guide, or project management toolkit",
+        "Write your credibility paragraph, your operations wins in 5 powerful sentences"
+      ], affirmation: "I have built the systems that keep organizations running. Now I build for myself." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Operations Quick-Start Guide for small business owners",
+        "Draft your first SOP template or process checklist",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what fractional COOs and operations consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The processes I designed for others -- I am now designing for my own freedom." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share the #1 operations mistake that kills small business growth",
+        "Join 2 Facebook groups for entrepreneurs and introduce yourself as an operations expert",
+        "DM 5 business owners in your network who seem overwhelmed or disorganized",
+        "Record a 90-second video: The one missing system that is costing your business thousands",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My operations expertise is the backbone every growing business desperately needs." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Systems Every Small Business Needs Before Hiring Their First Employee",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you meeting agenda and project tracker for $17",
+        "Launch a $5/day LinkedIn ad targeting small business owners and startup founders",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube or LinkedIn videos"
+      ], affirmation: "I turn chaos into clarity. That skill is worth more than I have ever been paid for it." }
+    }
+  },
+
+  "Manager / Supervisor / Director": {
+    core: { title: "The Leader's Guide to Launching an Executive Coaching or Leadership Consulting Practice", price: "$37", desc: "Turn your leadership track record into a paid consulting offer" },
+    bump: { title: "10 Leadership Frameworks Every Manager Needs to Lead High-Performing Teams", price: "$17", desc: "Done-for-you leadership tools and frameworks" },
+    upsell: { title: "From Corporate Director to Independent Leadership Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to build and sell your leadership expertise" },
+    additional: [
+      { type: "GUIDE", name: "The New Manager Survival Guide", price: "$27" },
+      { type: "TEMPLATE", name: "Team Performance Review and Feedback Template Pack", price: "$17" },
+      { type: "JOURNAL", name: "The Intentional Leader Journal: 90 Days of Clarity and Direction", price: "$19" },
+      { type: "COURSE", name: "Leadership Fundamentals Mini Course for First-Time Managers", price: "$97" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn posts about leadership mistakes and team management tips drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full consulting transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every leadership role you have held: team lead, manager, director, department head",
+        "Circle the ONE leadership challenge where you consistently helped others achieve breakthroughs",
+        "Write: I help [who] with [specific leadership challenge] so they can [result]",
+        "Research 5 first-time managers or small business owners who struggle to lead their teams",
+        "List 3 leadership questions colleagues and direct reports ask you constantly",
+        "Choose your core product: leadership guide, new manager toolkit, or team performance templates",
+        "Write your credibility paragraph, your leadership wins and team results in 5 sentences"
+      ], affirmation: "I developed leaders for organizations. Now I develop my own legacy." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Leadership Quick-Start Guide for new managers or entrepreneurs",
+        "Draft your first leadership framework or team performance worksheet",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what executive coaches and leadership consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague or former direct report for honest feedback"
+      ], affirmation: "Every team I built was practice for the business I am creating now." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share the #1 leadership mistake that kills team morale and productivity",
+        "Join 2 Facebook groups for entrepreneurs or new managers and introduce yourself as a leadership expert",
+        "DM 5 business owners or managers in your network who struggle with team performance",
+        "Record a 90-second video: The leadership habit that separates great managers from average ones",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or mentees to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My leadership experience is exactly what the next generation of managers needs." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Leadership Mistakes New Managers Make in Their First 90 Days",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you 1-on-1 meeting and performance review template for $17",
+        "Launch a $5/day LinkedIn ad targeting managers, supervisors, and team leads",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan a webinar or LinkedIn Live on leadership"
+      ], affirmation: "I know how to bring out the best in people. That gift deserves to be a business." }
+    }
+  },
+
+  "Healthcare & Wellness": {
+    core: { title: "The Healthcare Professional's Guide to Consulting and Wellness Coaching on Your Own Terms", price: "$37", desc: "Package your clinical or wellness expertise into a digital consulting offer" },
+    bump: { title: "10 Wellness Habits Every Busy Professional Needs to Protect Their Health", price: "$17", desc: "Done-for-you wellness guide and habit tracker" },
+    upsell: { title: "From Healthcare Employee to Independent Wellness Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to launch your health coaching or consulting practice" },
+    additional: [
+      { type: "TEMPLATE", name: "Patient or Client Intake Form Templates (5-Pack)", price: "$27" },
+      { type: "GUIDE", name: "Caregiver Burnout Recovery Guide", price: "$37" },
+      { type: "JOURNAL", name: "The Wellness First Journal: 90 Days of Health and Clarity", price: "$19" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Wellness Coaching Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Instagram Reels or Facebook posts about health tips and wellness mistakes drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full consulting transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every healthcare or wellness area you have worked in: clinical care, administration, coaching, education",
+        "Circle the ONE area where you have helped people achieve the most meaningful health outcomes",
+        "Write: I help [who] with [specific health or wellness problem] so they can [result]",
+        "Research 5 individuals or organizations struggling with the health challenge you solve",
+        "List 3 health or wellness questions people ask you constantly, even outside of work",
+        "Choose your core product: wellness guide, self-care planner, or caregiver resource kit",
+        "Write your credibility paragraph, your healthcare experience and patient outcomes in 5 sentences"
+      ], affirmation: "I have helped people heal. Now I am building a business that does the same for me." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Wellness Quick-Start Guide for your target audience",
+        "Draft your first wellness guide, habit tracker, or self-care checklist",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what health coaches and wellness consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The health knowledge I give away for free can become a product that serves thousands." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or Facebook: share the #1 wellness mistake busy professionals make",
+        "Join 2 Facebook groups for health or wellness and introduce yourself as an expert",
+        "DM 5 people in your network who have shared health or burnout struggles",
+        "Record a 90-second video: The one health habit that changed everything for my clients",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My healthcare expertise is the foundation for a business that heals and earns." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Daily Wellness Habits That Protect Your Health When Life Gets Busy",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you daily wellness tracker for $17",
+        "Launch a $5/day Facebook ad targeting busy women or healthcare professionals",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 Instagram Lives or YouTube videos"
+      ], affirmation: "I know what it takes to be well. Teaching that is both my gift and my business." }
+    }
+  },
+
+  "Education & Training": {
+    core: { title: "The Educator's Guide to Launching Your Own Online Course or Training Business", price: "$37", desc: "Turn your teaching and curriculum expertise into a profitable digital offer" },
+    bump: { title: "10 Instructional Design Principles That Make Online Courses Actually Work", price: "$17", desc: "Done-for-you course design checklist and framework" },
+    upsell: { title: "From Classroom Teacher to Online Course Creator: The Full Transition Blueprint", price: "$67", desc: "Complete roadmap to build, launch, and sell your first online course" },
+    additional: [
+      { type: "TEMPLATE", name: "Course Outline and Curriculum Builder Template", price: "$27" },
+      { type: "GUIDE", name: "The Adult Learning Quick Guide: How to Teach Busy Professionals Online", price: "$37" },
+      { type: "CHECKLIST", name: "Online Course Launch Checklist (Tech to First Sale)", price: "$17" },
+      { type: "PLANNER", name: "30-Day Plan to Create and Launch Your First Online Course", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "YouTube tutorial videos or LinkedIn posts about learning and professional development drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full course creator blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every subject or skill you have taught or trained others in throughout your career",
+        "Circle the ONE topic where your students or learners got the most transformative results",
+        "Write: I help [who] learn [specific skill or subject] so they can [result]",
+        "Research 5 professionals or organizations actively looking for training in your area",
+        "List 3 questions learners ask you constantly about the topic you teach",
+        "Choose your core product: mini course, training guide, or curriculum template pack",
+        "Write your credibility paragraph, your teaching experience and student outcomes in 5 sentences"
+      ], affirmation: "I have spent years shaping minds. Now I shape my own income." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Online Mini Course or Training Guide on your signature topic",
+        "Draft the first module or lesson of your course with clear learning outcomes",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what online course creators in your niche charge for similar programs",
+        "Set up Gumroad, Payhip, or Teachable to deliver your product digitally",
+        "Send your draft to 1 trusted colleague or former student for honest feedback"
+      ], affirmation: "Every lesson plan I wrote was practice for the course that will change my life." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on YouTube or LinkedIn: share a quick teaching tip or skill breakdown from your expertise",
+        "Join 2 Facebook groups for your target learner and introduce yourself as an educator",
+        "DM 5 professionals in your network who have mentioned wanting to learn your subject",
+        "Record a 90-second video: The #1 skill professionals need but no one teaches them at work",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or students to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My teaching expertise can reach thousands online, not just the students in my classroom." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Skills Every Professional Needs to Advance Their Career This Year",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you study guide or workbook for $17",
+        "Launch a $5/day Facebook or YouTube ad targeting adult learners in your subject area",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan a live webinar or workshop"
+      ], affirmation: "Teaching is my superpower. Online, it becomes a business that earns while I sleep." }
+    }
+  },
+
+  "Technology & IT": {
+    core: { title: "The Tech Expert's Guide to Launching an IT Consulting or Fractional CTO Practice", price: "$47", desc: "Package your systems, development, or cybersecurity expertise into a consulting offer" },
+    bump: { title: "10 Tech Mistakes Small Businesses Make That Cost Them Thousands", price: "$17", desc: "Done-for-you tech audit checklist and fix guide" },
+    upsell: { title: "From Corporate Tech Pro to Independent IT Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to land your first technology consulting client" },
+    additional: [
+      { type: "CHECKLIST", name: "Small Business Cybersecurity Audit Checklist", price: "$17" },
+      { type: "GUIDE", name: "Tech Stack Starter Guide: The Right Tools for a Small Business", price: "$37" },
+      { type: "TEMPLATE", name: "IT Project Scope and Proposal Template Pack (5-Pack)", price: "$27" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your IT Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn posts or YouTube tutorials about tech mistakes and digital tools for small businesses drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full IT consulting transition blueprint is their natural next step." }
+    ],
+    revenue: "~$68",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every tech area you have worked in: software development, cybersecurity, infrastructure, IT support, data",
+        "Circle the ONE area where you have solved the most impactful problems for organizations",
+        "Write: I help [business type] with [specific tech problem] so they can [result]",
+        "Research 5 small businesses with obvious tech vulnerabilities or outdated systems",
+        "List 3 tech questions non-technical business owners ask you constantly",
+        "Choose your core product: tech audit checklist, cybersecurity guide, or tech stack recommendation guide",
+        "Write your credibility paragraph, your systems and tech wins in 5 powerful sentences"
+      ], affirmation: "I have built the digital infrastructure for organizations. Now I build my own." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Tech Quick-Start Guide or IT Audit Checklist for small businesses",
+        "Draft your first checklist, guide, or tech recommendation framework",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what IT consultants and fractional CTOs charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The solutions I built for corporations can now protect and serve small businesses too." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share the #1 tech mistake that leaves small businesses vulnerable",
+        "Join 2 Facebook groups for small business owners and introduce yourself as a tech expert",
+        "DM 5 entrepreneurs in your network who are using outdated or inefficient tech tools",
+        "Record a 90-second video: The tech gap that is silently costing your business money",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My tech expertise can protect and power businesses that could never afford a full-time CTO." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Tech Tools Every Small Business Needs to Run More Efficiently",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you tech setup checklist for new businesses at $17",
+        "Launch a $5/day LinkedIn ad targeting small business owners and startup founders",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube tutorials or LinkedIn posts"
+      ], affirmation: "I speak the language of technology and business. That fluency is my fortune." }
+    }
+  },
+
+  "Legal & Compliance": {
+    core: { title: "The Legal Professional's Guide to Launching a Compliance Consulting or Contract Review Practice", price: "$47", desc: "Package your legal and compliance expertise into a consulting or digital product offer" },
+    bump: { title: "10 Legal Mistakes Small Businesses Make Before They Hire an Attorney", price: "$17", desc: "Done-for-you legal checklist to protect small business owners" },
+    upsell: { title: "From Corporate Counsel to Independent Legal Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to build your legal consulting or contract services practice" },
+    additional: [
+      { type: "TEMPLATE", name: "Small Business Contract Template Pack (5 Essential Agreements)", price: "$37" },
+      { type: "GUIDE", name: "The Business Owner's Legal Protection Starter Guide", price: "$27" },
+      { type: "CHECKLIST", name: "Compliance Audit Checklist for Online Businesses", price: "$17" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Legal Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn posts about legal risks small businesses unknowingly take drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full legal consulting blueprint is their natural next step." }
+    ],
+    revenue: "~$68",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every legal and compliance area you have worked in: contracts, employment law, regulatory compliance, risk management",
+        "Circle the ONE area where your expertise has saved organizations the most money or risk",
+        "Write: I help [business type] with [specific legal or compliance problem] so they can [result]",
+        "Research 5 small businesses or online entrepreneurs who are exposed to the legal risk you solve",
+        "List 3 legal questions business owners ask you constantly, even outside of work",
+        "Choose your core product: contract template pack, legal protection guide, or compliance checklist",
+        "Write your credibility paragraph, your legal expertise and risk mitigation wins in 5 sentences"
+      ], affirmation: "I have protected organizations worth millions. Now I protect my own future." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Legal Protection Starter Guide or Contract Template Pack for small business owners",
+        "Draft your first contract template or legal checklist framed as education not legal advice",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what legal consultants and contract template sellers charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The legal frameworks I built for others now form the foundation of my business." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share the #1 legal mistake online entrepreneurs make when starting a business",
+        "Join 2 Facebook groups for entrepreneurs and introduce yourself as a compliance and legal expert",
+        "DM 5 business owners in your network who are operating without proper legal protection",
+        "Record a 90-second video: The contract clause every business owner must have to protect themselves",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneur networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My legal knowledge protects businesses. Packaged right, it can also build mine." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Legal Documents Every Online Business Owner Needs Before Making Their First Sale",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you privacy policy and terms of service template for $17",
+        "Launch a $5/day LinkedIn or Facebook ad targeting small business owners and online entrepreneurs",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 educational content pieces on legal basics"
+      ], affirmation: "The law is complex. My ability to simplify it is a service the world needs and will pay for." }
+    }
+  },
+
+  "Sales & Business Dev": {
+    core: { title: "The Sales Expert's Guide to Launching a Sales Coaching or Business Development Consulting Practice", price: "$37", desc: "Package your revenue-generating expertise into a coaching or consulting offer" },
+    bump: { title: "10 Sales Scripts Every Service Business Owner Needs to Close More Clients", price: "$17", desc: "Done-for-you conversation and closing scripts" },
+    upsell: { title: "From Corporate Sales Leader to Independent Sales Coach: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a sales coaching or consulting business from your track record" },
+    additional: [
+      { type: "TEMPLATE", name: "Sales Pipeline Tracker and CRM Setup Template", price: "$27" },
+      { type: "GUIDE", name: "The Introvert's Guide to Selling With Confidence", price: "$37" },
+      { type: "CHECKLIST", name: "Discovery Call Checklist: 10 Questions to Qualify Every Lead", price: "$17" },
+      { type: "PLANNER", name: "30-Day Revenue Sprint Planner for Service Business Owners", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn or Instagram posts about sales mindset, objection handling, and closing strategies drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full sales coaching transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every sales and business development area you have mastered: prospecting, closing, partnerships, account management",
+        "Circle the ONE area where you have consistently driven the most revenue results",
+        "Write: I help [business type] with [specific sales challenge] so they can [result]",
+        "Research 5 service business owners who are struggling to sell their own offers",
+        "List 3 sales questions entrepreneurs ask you constantly, even outside of work",
+        "Choose your core product: sales script guide, discovery call framework, or pipeline tracker",
+        "Write your credibility paragraph, your revenue wins and sales milestones in 5 sentences"
+      ], affirmation: "I have closed deals worth millions for others. Now I am closing deals for myself." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Sales Quick-Start Guide or Script Pack for service business owners",
+        "Draft your first sales script, objection handler, or discovery call framework",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what sales coaches and revenue consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "Every sale I made for someone else was practice for the business I am selling now." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn or Instagram: share the #1 reason service business owners fail to make consistent sales",
+        "Join 2 Facebook groups for coaches and entrepreneurs and introduce yourself as a sales expert",
+        "DM 5 business owners in your network who have mentioned struggling to sell or find clients",
+        "Record a 90-second video: The sales conversation mistake that kills most deals before they start",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My sales expertise is the bridge between a great offer and a full client roster." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Sales Conversations Every Service Business Owner Must Have to Get Clients This Month",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you follow-up email script pack for $17",
+        "Launch a $5/day LinkedIn or Facebook ad targeting coaches, consultants, and service business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan a live sales training or webinar"
+      ], affirmation: "Selling is a skill most people fear and I have mastered. That mastery is my business." }
+    }
+  },
+
+  "Social Work & Counseling": {
+    core: { title: "The Social Worker's Guide to Launching a Life Coaching or Community Consulting Practice", price: "$37", desc: "Package your advocacy, counseling, and support expertise into a digital coaching offer" },
+    bump: { title: "10 Boundaries Every Helping Professional Needs to Avoid Burnout", price: "$17", desc: "Done-for-you boundary-setting guide and self-care framework" },
+    upsell: { title: "From Social Work to Soulful Business: The Transition Blueprint for Helping Professionals", price: "$67", desc: "Full roadmap to build a coaching or consulting practice from your lived and professional expertise" },
+    additional: [
+      { type: "GUIDE", name: "The Community Organizer's Guide to Building Paid Programs", price: "$37" },
+      { type: "JOURNAL", name: "The Resilience Journal: 90 Days of Healing and Forward Motion", price: "$19" },
+      { type: "TEMPLATE", name: "Client Intake and Assessment Template Pack for Coaches", price: "$27" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Life Coaching Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Instagram Reels, Facebook Lives, or YouTube content about healing, resilience, and personal growth drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full coaching transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every area of social work or counseling you have practiced: case management, advocacy, group facilitation, crisis support",
+        "Circle the ONE area where you have helped people create the most lasting change",
+        "Write: I help [who] overcome [specific challenge] so they can [result]",
+        "Research 5 individuals or communities struggling with the challenge you are uniquely qualified to address",
+        "List 3 personal or emotional growth questions people come to you with constantly",
+        "Choose your core product: a life coaching guide, resilience journal, or self-assessment workbook",
+        "Write your credibility paragraph, your years of helping others transform in 5 sentences"
+      ], affirmation: "I have walked people through their darkest moments. I can walk through mine into the light." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Life Coaching Guide or Personal Transformation Workbook",
+        "Draft your first guide section, journal prompts, or client assessment tool",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what life coaches and wellness consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague or former client for honest feedback"
+      ], affirmation: "The tools I used to heal others can now be packaged to heal many more." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or Facebook: share a powerful insight about resilience, healing, or self-advocacy",
+        "Join 2 Facebook groups for personal development or empowerment and introduce yourself as an expert",
+        "DM 5 people in your network who are navigating transitions, burnout, or personal challenges",
+        "Record a 90-second video: The one mindset shift that changes everything for people who feel stuck",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their communities",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My compassion is not a weakness. It is the foundation of a business that changes lives." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Practices That Help You Heal, Reset, and Move Forward After Life's Hardest Moments",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you daily resilience habit tracker for $17",
+        "Launch a $5/day Facebook or Instagram ad targeting women in personal or professional transition",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan a virtual workshop or group coaching experience"
+      ], affirmation: "Helping people grow has always been my calling. Now it is also my income stream." }
+    }
+  },
+
+  "Executive Assistant & Admin": {
+    core: { title: "The Executive Assistant's Guide to Launching a Virtual Assistant or Operations Consulting Business", price: "$37", desc: "Package your coordination, systems, and support expertise into a VA or consulting offer" },
+    bump: { title: "10 Systems Every Entrepreneur Needs to Stay Organized and Scale Without Chaos", price: "$17", desc: "Done-for-you organization templates and workflow systems" },
+    upsell: { title: "From Executive Assistant to Online Business Owner: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a profitable VA or operations consulting business" },
+    additional: [
+      { type: "TEMPLATE", name: "Executive Inbox Management and Calendar System Template Pack", price: "$27" },
+      { type: "GUIDE", name: "The CEO's First Hire Guide: How to Onboard a Virtual Assistant", price: "$37" },
+      { type: "CHECKLIST", name: "Business Admin Audit Checklist for Online Entrepreneurs", price: "$17" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Virtual Assistant Business", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Instagram Reels or LinkedIn posts about productivity systems and business organization drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full VA business blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every administrative and operations skill you have mastered: calendar management, travel coordination, project tracking, vendor management",
+        "Circle the ONE area where your support has made the biggest difference for the executives you have served",
+        "Write: I help [entrepreneur type] with [specific administrative or operations challenge] so they can [result]",
+        "Research 5 online entrepreneurs or small business owners who are drowning in admin tasks",
+        "List 3 organizational questions business owners ask you constantly, even outside of work",
+        "Choose your core product: VA services guide, inbox management system, or business operations template pack",
+        "Write your credibility paragraph, your administrative expertise and the executives you have supported in 5 sentences"
+      ], affirmation: "I have been the backbone of executives' success. Now I am the backbone of my own." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Business Organization Quick-Start Guide or VA Services Starter Kit",
+        "Draft your first system template, onboarding checklist, or workflow guide",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what virtual assistants and online business managers charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The systems I built for others are the systems that will build my business." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or LinkedIn: share the #1 reason entrepreneurs stay overwhelmed even when they are making money",
+        "Join 2 Facebook groups for online entrepreneurs and introduce yourself as a business systems and admin expert",
+        "DM 5 coaches or consultants in your network who are clearly overwhelmed by operations tasks",
+        "Record a 90-second video: The one admin system that gave my clients back 10 hours a week",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or executives you have supported to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My organizational genius keeps businesses running. Now it runs a business of my own." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Systems Every Online Business Owner Needs to Stop Drowning in Admin Work",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you weekly planning and task management template for $17",
+        "Launch a $5/day Facebook or Instagram ad targeting coaches, consultants, and online business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 pieces of content on productivity and business systems"
+      ], affirmation: "Behind every thriving leader is someone like me. Now I lead for myself." }
+    }
+  },
+
+  "Ministry & Faith Leadership": {
+    core: { title: "The Faith Leader's Guide to Launching a Christian Life Coaching or Faith-Based Consulting Practice", price: "$37", desc: "Package your pastoral and discipleship expertise into a faith-based coaching or digital product offer" },
+    bump: { title: "10 Biblical Principles for Building a Purpose-Driven Business With Faith at the Center", price: "$17", desc: "Done-for-you devotional and business alignment guide" },
+    upsell: { title: "From the Pulpit to the Platform: The Faith Leader's Transition Blueprint for Building a Kingdom Business", price: "$67", desc: "Full roadmap to launch a coaching, speaking, or consulting ministry as a business" },
+    additional: [
+      { type: "DEVOTIONAL", name: "The Called Woman: A 21-Day Devotional for Faith-Led Entrepreneurs", price: "$19" },
+      { type: "GUIDE", name: "How to Build a Ministry Business That Pays You Without Compromising Your Calling", price: "$37" },
+      { type: "JOURNAL", name: "Purpose and Profit Journal: 90 Days of Faith, Vision, and Action", price: "$19" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Faith-Based Coaching Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "YouTube sermons, Instagram devotionals, or Facebook Lives combining faith and practical life guidance drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full Kingdom Business blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every ministry and leadership area you have served in: preaching, pastoral counseling, discipleship, youth ministry, community outreach",
+        "Circle the ONE area where your ministry has produced the most life-changing results",
+        "Write: I help [who] discover [specific faith-based or life transformation outcome] so they can [result]",
+        "Research 5 faith-led women or entrepreneurs who are struggling with purpose, direction, or building a calling-based business",
+        "List 3 spiritual or life purpose questions people bring to you constantly",
+        "Choose your core product: a faith-based life coaching guide, devotional workbook, or purpose-finding framework",
+        "Write your credibility paragraph, your ministry experience and the lives you have impacted in 5 sentences"
+      ], affirmation: "God equipped me to serve a congregation. He also equipped me to serve the marketplace." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Faith-Based Life Coaching Guide or Called to More Devotional Workbook",
+        "Draft your first devotional, coaching framework, or spiritual development module",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what Christian life coaches and faith-based consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Share your draft with 1 trusted minister or mentor for honest feedback"
+      ], affirmation: "Every sermon I preached was practice for the message I am now packaging for the world." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or Facebook: share a faith-based insight about purpose, calling, or operating in your gifts",
+        "Join 2 Facebook groups for Christian entrepreneurs or faith-led women and introduce yourself",
+        "DM 5 people in your network who are searching for purpose or building a faith-aligned business",
+        "Record a 90-second video: Why God is not opposed to your prosperity and what the Bible actually says about it",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 ministry colleagues to share your offer with their congregations or networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My calling does not stop at the church doors. It extends into every business I build." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Faith Declarations to Speak Over Your Business Every Morning",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you 21-day prayer and business alignment guide for $17",
+        "Launch a $5/day Facebook ad targeting Christian women, faith-led entrepreneurs, and ministry leaders",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan a virtual faith and business workshop or retreat"
+      ], affirmation: "I was called to lead. In my business, that calling becomes legacy." }
+    }
+  },
+
+  "Realtor / Real Estate Broker": {
+    core: { title: "The Real Estate Pro's Guide to Launching an Investing Education or Agent Coaching Business", price: "$37", desc: "Package your buying, selling, and investing expertise into a digital education or coaching offer" },
+    bump: { title: "10 Things Every First-Time Home Buyer Must Know Before Making an Offer", price: "$17", desc: "Done-for-you home buyer education guide" },
+    upsell: { title: "From Real Estate Agent to Real Estate Educator: The Business Transition Blueprint", price: "$67", desc: "Full roadmap to build a real estate education, coaching, or investing course business" },
+    additional: [
+      { type: "CHECKLIST", name: "Home Buyer's Due Diligence Checklist (20 Must-Ask Questions)", price: "$17" },
+      { type: "GUIDE", name: "Real Estate Investing Starter Guide: How to Buy Your First Property", price: "$37" },
+      { type: "TEMPLATE", name: "Real Estate Business Plan Template for New Agents", price: "$27" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Real Estate Coaching Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "YouTube walkthroughs, Instagram Reels, or Facebook posts about real estate investing tips and home buying secrets drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full real estate educator transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every aspect of real estate you have mastered: residential sales, commercial, investing, property management, mortgages",
+        "Circle the ONE area where you have helped clients achieve the most life-changing financial outcomes",
+        "Write: I help [who] with [specific real estate challenge or goal] so they can [result]",
+        "Research 5 first-time buyers, investors, or new agents who are confused or overwhelmed by real estate",
+        "List 3 real estate questions people ask you constantly, even outside of work",
+        "Choose your core product: home buyer guide, investing starter guide, or new agent coaching kit",
+        "Write your credibility paragraph, your transactions, clients served, and results in 5 sentences"
+      ], affirmation: "I have helped families build wealth through real estate. Now I build my own through expertise." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Real Estate Education Guide or Home Buyer's Starter Pack",
+        "Draft your first buyer guide, investment checklist, or market education document",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what real estate educators and investing coaches charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "Every transaction I closed was preparing me to open a new door for myself." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or YouTube: share the #1 mistake first-time home buyers make that costs them thousands",
+        "Join 2 Facebook groups for home buyers or real estate investors and introduce yourself as an expert",
+        "DM 5 people in your network who have mentioned wanting to buy a home or invest in real estate",
+        "Record a 90-second video: What no one tells you before you make an offer on a house",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or clients to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My real estate knowledge is the key that unlocks financial freedom for others." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Things Every First-Time Home Buyer Must Do Before Talking to a Lender",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you home search and offer comparison worksheet for $17",
+        "Launch a $5/day Facebook or Instagram ad targeting renters, first-time buyers, or real estate investors",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan a live real estate Q&A or market update video"
+      ], affirmation: "Real estate built generational wealth for my clients. Now I build my own generational legacy." }
+    }
+  },
+
+  "Graphic Designer": {
+    core: { title: "The Graphic Designer's Guide to Launching a Brand Design or Visual Consulting Business", price: "$37", desc: "Package your design expertise into a digital product or consulting offer" },
+    bump: { title: "10 Brand Design Mistakes Small Businesses Make That Kill Their Credibility", price: "$17", desc: "Done-for-you visual brand audit checklist" },
+    upsell: { title: "From In-House Designer to Independent Brand Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to land your first paying design client or sell your first digital product" },
+    additional: [
+      { type: "TEMPLATE", name: "Brand Style Guide Template Pack (Fonts, Colors, Logos)", price: "$27" },
+      { type: "GUIDE", name: "The Non-Designer's Guide to Building a Consistent Brand", price: "$37" },
+      { type: "CHECKLIST", name: "Visual Brand Audit Checklist for Small Business Owners", price: "$17" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Graphic Design Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Instagram Reels and Pinterest posts showcasing before-and-after brand transformations drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full design consulting transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every design skill you have mastered: logo design, brand identity, social media graphics, packaging, print",
+        "Circle the ONE area where your work has made the most visible impact for clients or employers",
+        "Write: I help [business type] with [specific design problem] so they can [result]",
+        "Research 5 small businesses with weak or inconsistent branding that you could transform",
+        "List 3 design questions entrepreneurs ask you constantly, even outside of work",
+        "Choose your core product: brand style guide template, design checklist, or mini branding course",
+        "Write your credibility paragraph, your design experience and client transformations in 5 sentences"
+      ], affirmation: "I have built visual identities for others for years. Now I build my own brand and my own income." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Brand Quick-Start Guide or Visual Identity Template Pack",
+        "Draft your first brand style guide template or design checklist in Canva or Figma",
+        "Add your own branding to the product to demonstrate your expertise",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what brand designers and visual consultants charge for similar digital products",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague or former client for honest feedback"
+      ], affirmation: "Every brand I designed for someone else was practice for the business I am designing for myself." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or Pinterest: share a before-and-after brand transformation or design tip",
+        "Join 2 Facebook groups for entrepreneurs and introduce yourself as a brand designer and visual expert",
+        "DM 5 business owners in your network whose branding looks inconsistent or unprofessional",
+        "Record a 90-second video: The #1 branding mistake that makes small businesses look unprofessional",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former clients or colleagues to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My design eye sees what others cannot. That vision is a product the market will pay for." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Brand Design Principles Every Small Business Owner Needs Before Hiring a Designer",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you color palette and font pairing guide for $17",
+        "Launch a $5/day Instagram or Pinterest ad targeting small business owners and entrepreneurs",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 pieces of visual content showcasing your expertise"
+      ], affirmation: "Design is not just what I do. It is how I see the world, and that perspective is my business." }
+    }
+  },
+
+  "Insurance & Financial Services": {
+    core: { title: "The Insurance Professional's Guide to Launching a Financial Education or Consulting Business", price: "$37", desc: "Package your policies, planning, and financial expertise into a digital product or coaching offer" },
+    bump: { title: "10 Financial Mistakes Families Make That the Right Coverage Could Have Prevented", price: "$17", desc: "Done-for-you financial awareness guide for your ideal client" },
+    upsell: { title: "From Insurance Agent to Independent Financial Educator: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a financial education or consulting business from your career expertise" },
+    additional: [
+      { type: "GUIDE", name: "The Family Financial Protection Checklist: Are You Truly Covered?", price: "$17" },
+      { type: "TEMPLATE", name: "Financial Planning Starter Workbook for Families", price: "$27" },
+      { type: "COURSE", name: "Financial Literacy 101: What Your Agent Wishes You Already Knew", price: "$97" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Financial Education Business", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Facebook posts and Lives about financial protection, family planning mistakes, and money topics your audience avoids drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full financial educator transition blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every area of insurance and financial services you have worked in: life, health, auto, financial planning, retirement",
+        "Circle the ONE area where you have helped clients make the most meaningful financial decisions",
+        "Write: I help [who] with [specific financial challenge] so they can [result]",
+        "Research 5 families or entrepreneurs who are underinsured or financially unprepared in the area you solve",
+        "List 3 financial or insurance questions people ask you constantly, even outside of work",
+        "Choose your core product: financial literacy guide, coverage checklist, or family protection workbook",
+        "Write your credibility paragraph, your years in financial services and the clients you have protected in 5 sentences"
+      ], affirmation: "I have protected families for years. Now I build a business that protects my own future." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Financial Education Guide or Family Protection Checklist",
+        "Draft your first financial checklist, guide section, or awareness worksheet",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what financial educators and money coaches charge for similar digital products",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The financial knowledge I used to sell policies can now educate and empower thousands." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Facebook: share the #1 financial mistake families make that leaves them unprotected",
+        "Join 2 Facebook groups for women, families, or entrepreneurs and introduce yourself as a financial expert",
+        "DM 5 people in your network who have mentioned money stress, financial uncertainty, or lack of coverage",
+        "Record a 90-second video: The one financial conversation most families avoid until it is too late",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or clients to share your offer with their networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "My financial expertise can change the trajectory of an entire family. That is worth building a business around." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Financial Questions Every Family Should Be Able to Answer Before Something Goes Wrong",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you family financial review checklist for $17",
+        "Launch a $5/day Facebook ad targeting families, women, or small business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 Facebook Lives or YouTube videos on financial topics"
+      ], affirmation: "I spent years helping others get financially protected. Now I build financial freedom for myself." }
+    }
+  },
+
+  "Customer Service & Client Relations": {
+    core: { title: "The Client Experience Expert's Guide to Launching a Customer Success Consulting or Coaching Business", price: "$37", desc: "Package your retention, support, and experience expertise into a digital consulting offer" },
+    bump: { title: "10 Customer Experience Frameworks That Turn One-Time Buyers Into Loyal Brand Advocates", price: "$17", desc: "Done-for-you client retention scripts and experience templates" },
+    upsell: { title: "From Customer Service Leader to Client Experience Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a customer success or client experience consulting practice" },
+    additional: [
+      { type: "TEMPLATE", name: "Client Onboarding Experience Template Pack (5-Pack)", price: "$27" },
+      { type: "GUIDE", name: "The Service Business Owner's Guide to Getting 5-Star Reviews Consistently", price: "$37" },
+      { type: "CHECKLIST", name: "Client Retention Audit Checklist for Service Business Owners", price: "$17" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Client Experience Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Instagram or LinkedIn posts about client experience, retention strategies, and turning clients into raving fans drive to your freebie opt-in. They download and join your list." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high." },
+      { step: 3, title: "Checkout bump", desc: "Bump offer appears as a checkbox. One click. They add it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "Your buyer is in momentum. The full client experience consulting blueprint is their natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every customer service and client relations area you have mastered: support, onboarding, retention, escalation, experience design",
+        "Circle the ONE area where your work created the most loyal customers or measurably improved satisfaction",
+        "Write: I help [business type] with [specific client experience challenge] so they can [result]",
+        "Research 5 service businesses that clearly have client retention or satisfaction problems",
+        "List 3 client experience questions business owners ask you constantly",
+        "Choose your core product: client onboarding guide, retention framework, or customer experience audit checklist",
+        "Write your credibility paragraph, your client satisfaction wins and retention results in 5 sentences"
+      ], affirmation: "I have turned unhappy customers into loyal advocates. Now I advocate for my own success." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Client Experience Quick-Start Guide or Onboarding Template Pack",
+        "Draft your first onboarding checklist, retention script, or client experience audit tool",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what customer success consultants and client experience coaches charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback"
+      ], affirmation: "The client experiences I designed for others are now the template for building my own business." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Instagram or LinkedIn: share the #1 reason clients stop buying from service businesses",
+        "Join 2 Facebook groups for coaches or service business owners and introduce yourself as a client experience expert",
+        "DM 5 business owners in your network who have mentioned client complaints or low repeat business",
+        "Record a 90-second video: The one onboarding mistake that costs service businesses their best clients",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their entrepreneur networks",
+        "Follow up with every person who showed interest"
+      ], affirmation: "Great client experiences are the highest-leverage investment a business can make. I teach that." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Ways to Wow Your Clients in the First 30 Days So They Stay, Refer, and Come Back",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you client feedback survey and follow-up email template for $17",
+        "Launch a $5/day Facebook or Instagram ad targeting coaches, consultants, and service business owners",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 pieces of content on client retention and referrals"
+      ], affirmation: "I know what makes clients stay. That knowledge is the product that builds my freedom." }
+    }
+  }
+};
+
+// ── AI-POWERED CUSTOM SKILL ──
+const customSkillCache = {};
+
+async function buildCustomSkillData(skill) {
+  if (customSkillCache[skill]) return customSkillCache[skill];
+  const prompt = 'You are a digital product strategist for Bold To Bankable, a brand helping experienced professional women package their expertise into digital products. A user entered their expertise: "' + skill + '". Generate a personalized report as STRICT JSON ONLY. No markdown, no explanation. Structure: {"core":{"title":"string","price":"$37","desc":"string"},"bump":{"title":"string","price":"$17","desc":"string"},"upsell":{"title":"string","price":"$67","desc":"string"},"additional":[{"type":"TEMPLATE","name":"string","price":"$17"},{"type":"GUIDE","name":"string","price":"$27"},{"type":"JOURNAL","name":"string","price":"$19"},{"type":"PLANNER","name":"string","price":"$37"}],"funnel":[{"step":1,"title":"Drive traffic with content","desc":"string"},{"step":2,"title":"Thank-you page offer","desc":"Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high."},{"step":3,"title":"Checkout bump","desc":"Bump offer appears as a checkbox. One click. They add it without leaving the page."},{"step":4,"title":"Post-purchase upsell","desc":"string"}],"revenue":"~$56","planner":{"w1":{"theme":"CLARITY","days":["7 specific daily actions for week 1"],"affirmation":"string"},"w2":{"theme":"CREATE","days":["7 specific daily actions for week 2"],"affirmation":"string"},"w3":{"theme":"LAUNCH","days":["7 specific daily actions for week 3"],"affirmation":"string"},"w4":{"theme":"GROW","days":["7 specific daily actions for week 4"],"affirmation":"string"}}}. Make everything deeply specific to the expertise. Each week must have exactly 7 days. Return ONLY valid JSON.';
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+    });
+    const data = await response.json();
+    const raw = (data.content || []).map(function(i) { return i.text || ''; }).join('').replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(raw);
+    customSkillCache[skill] = parsed;
+    return parsed;
+  } catch (err) {
+    console.error('AI generation failed:', err);
+    // Show retry notice to user
+    var notice = document.getElementById('aiRetryNotice');
+    if (notice) notice.classList.add('show');
+    // Hide loading overlay
+    var overlay = document.getElementById('loadingOverlay');
+    if (overlay) overlay.classList.remove('show');
+    // Store skill for retry
+    window._lastFailedSkill = skill;
+    return null;
+  }
+}
+
+function buildFallbackData(skill) {
+  var s = skill.trim();
+  return {
+    core: { title: 'The ' + s + " Expert's Guide to Consulting on Your Own Terms", price: '$37', desc: 'Package your ' + s + ' expertise into a profitable consulting offer' },
+    bump: { title: '10 Templates Every ' + s + ' Consultant Needs', price: '$17', desc: 'Done-for-you resources to serve your first clients immediately' },
+    upsell: { title: 'From Corporate ' + s + ' Professional to Independent Consultant: The Transition Blueprint', price: '$67', desc: 'Full roadmap to land your first paying client in 30 days' },
+    additional: [
+      { type: 'CHECKLIST', name: s + ' Audit Checklist for Small Business Owners', price: '$17' },
+      { type: 'TEMPLATE', name: s + ' Starter Kit Template Pack (5-Pack)', price: '$27' },
+      { type: 'JOURNAL', name: 'The Purposeful ' + s + ' Leader Journal', price: '$19' },
+      { type: 'PLANNER', name: '30-Day Plan to Launch Your ' + s + ' Consulting Practice', price: '$37' }
+    ],
+    funnel: [
+      { step: 1, title: 'Drive traffic with content', desc: 'LinkedIn or Instagram content showcasing your ' + s + ' expertise drives to your freebie opt-in. They download and join your list.' },
+      { step: 2, title: 'Thank-you page offer', desc: 'Immediately offers your Core Product. Your buyer is already warm. Conversion is naturally high.' },
+      { step: 3, title: 'Checkout bump', desc: 'Bump offer appears as a checkbox. One click. They add it without leaving the page.' },
+      { step: 4, title: 'Post-purchase upsell', desc: 'Your buyer is in momentum. The full ' + s + ' consultant blueprint is their natural next step.' }
+    ],
+    revenue: '~$56',
+    planner: {
+      w1: { theme: 'CLARITY', days: [
+        'List every area within ' + s + ' you have worked in throughout your career',
+        'Circle the ONE area where you have gotten the most measurable, meaningful results',
+        'Write: I help [who] with [specific ' + s.toLowerCase() + ' problem] so they can [result]',
+        'Research 5 small businesses or entrepreneurs struggling with the ' + s.toLowerCase() + ' challenge you solve',
+        'List 3 ' + s.toLowerCase() + ' questions you get asked constantly, even outside of work',
+        'Choose your core product: a checklist, guide, template pack, or mini course',
+        'Write your credibility paragraph, your experience and impact in 5 powerful sentences'
+      ], affirmation: 'I have given my ' + s.toLowerCase() + ' expertise to others for years. Now I invest it in myself.' },
+      w2: { theme: 'CREATE', days: [
+        'Outline your core product: a ' + s + ' Starter Guide or Quick-Start Kit',
+        'Draft your first template, checklist, or educational worksheet',
+        'Add your branding, name, and contact to your product in Canva',
+        'Write a 3-bullet what-is-included description for your sales page',
+        'Research what consultants in your area charge for similar resources',
+        'Set up Gumroad or Payhip to deliver your product digitally',
+        'Send your draft to 1 trusted colleague for honest feedback'
+      ], affirmation: 'The results I created for others are now the foundation of the results I create for myself.' },
+      w3: { theme: 'LAUNCH', days: [
+        'Post on LinkedIn or Instagram: share the #1 mistake people make without ' + s.toLowerCase() + ' expertise',
+        'Join 2 Facebook groups for entrepreneurs and introduce yourself as the expert you are',
+        'DM 5 business owners in your network who need your area of expertise',
+        'Record a 90-second video: The #1 ' + s.toLowerCase() + ' mistake costing businesses money right now',
+        'Offer your product at a launch price for the first 10 buyers only',
+        'Ask 2 former colleagues to share your offer with their entrepreneurial networks',
+        'Follow up with every person who showed interest'
+      ], affirmation: 'My ' + s.toLowerCase() + ' expertise is exactly what the market is waiting for.' },
+      w4: { theme: 'GROW', days: [
+        'Create your freebie: 5 ' + s + ' Insights Every Entrepreneur Needs Before They Make a Costly Mistake',
+        'Set up a simple opt-in page using ConvertKit or MailerLite',
+        'Write a 3-email welcome sequence that leads to your core product',
+        'Create your bump offer: a done-for-you resource or template pack for $17',
+        'Launch a $5/day Facebook or LinkedIn ad targeting your ideal client',
+        'Document your results: what sold, who bought, what questions came up',
+        'Map out Month 2: add your upsell and plan 2 educational content pieces'
+      ], affirmation: 'I know this field at a depth most people never will. That depth is my digital business.' }
+    }
+  };
+}
+
+async function getSkillData(skill) {
+  if (SKILL_DATA[skill]) return SKILL_DATA[skill];
+  return await buildCustomSkillData(skill);
+}
+
+// ── PLATFORM TIPS ──
+const PLATFORM_TIPS = {
+  'YouTube': { emoji: '&#127909;', tip: 'Run a tutorial-style YouTube channel targeting your niche with keyword-optimized titles. Long-form content builds deep trust with buyers.' },
+  'Facebook': { emoji: '&#128216;', tip: 'Start a Facebook Group for your ideal client. Run $10/day Sponsored Content ads to drive group members to your freebie opt-in.' },
+  'LinkedIn': { emoji: '&#128188;', tip: 'Run a $10/day LinkedIn Sponsored Content ad targeting specific job titles. This is the highest-intent platform for expert offers.' },
+  'Instagram': { emoji: '&#128248;', tip: 'Post Reels and carousel posts showcasing your expertise. Stories drive warm traffic to your link-in-bio opt-in page.' },
+  'TikTok / Reels': { emoji: '&#127925;', tip: 'Short-form video is the fastest path to organic reach. Post one educational tip per day and link to your freebie in your bio.' },
+  'Podcast': { emoji: '&#127897;', tip: 'A podcast builds an audience of busy professionals who prefer to learn on the go. Lead with value, end every episode with your freebie CTA.' },
+  'Email / Blog': { emoji: '&#9993;', tip: 'SEO-optimized blog posts bring evergreen traffic that converts passively. Pair with a consistent email newsletter to nurture your list.' },
+  'Pinterest': { emoji: '&#128204;', tip: 'Pinterest drives evergreen visual search traffic. Pin your freebie, blog posts, and product graphics to reach buyers actively searching for solutions.' }
+};
+
+// ── UI FUNCTIONS ──
+
+}
+
+
+function handleCustomSkill() {
+  var val = document.getElementById('customSkill').value.trim();
+  if (val.length > 2) {
+    document.querySelectorAll('.skill-card').forEach(function(c) { c.classList.remove('selected'); });
+    selectedSkill = val;
+  } else {
+    selectedSkill = null;
+  }
+  checkCta();
+}
+
+
+}
+
+function checkCta() {
+  document.getElementById('mainCta').disabled = !(selectedSkill && selectedPlatform);
+}
+
+function goToTab(idx) {
+  if (idx > 0 && !reportData) return;
+  document.querySelectorAll('.report-section').forEach(function(s, i) {
+    s.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.tab').forEach(function(t, i) {
+    t.classList.remove('active', 'locked');
+    if (i === idx) { t.classList.add('active'); }
+    else if (!reportData && i > 0) { t.classList.add('locked'); }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function generateReport() {
+  var overlay = document.getElementById('loadingOverlay');
+  var isCustom = !SKILL_DATA[selectedSkill];
+  document.getElementById('loadingText').textContent = isCustom ? 'Generating your custom blueprint with AI...' : 'Building your personalized blueprint...';
+  document.getElementById('loadingSub').textContent = isCustom ? 'Creating products, funnel, and 30-day plan tailored to your expertise' : 'Matching your expertise to digital products';
+  overlay.classList.add('show');
+  await new Promise(function(r) { setTimeout(r, 200); });
+  reportData = await getSkillData(selectedSkill);
+  if (!reportData) {
+    // AI failed — overlay already hidden in catch block, retry notice shown
+    return;
+  }
+  buildProductsTab();
+  buildFunnelTab();
+  buildPlannerTab();
+  var ce = document.getElementById('coverExpertise');
+  if (ce) ce.textContent = selectedSkill;
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('locked'); });
+  overlay.classList.remove('show');
+  goToTab(1);
+}
+
+function retryAiGeneration() {
+  var notice = document.getElementById('aiRetryNotice');
+  if (notice) notice.classList.remove('show');
+  // Clear cache so it tries fresh
+  if (window._lastFailedSkill) {
+    delete customSkillCache[window._lastFailedSkill];
+  }
+  generateReport();
+}
+
+function buildProductsTab() {
+  var d = reportData;
+  ['1','2','3'].forEach(function(n) {
+    var el = document.getElementById('expertiseLabel' + n);
+    if (el) el.textContent = selectedSkill;
+  });
+  document.getElementById('productRow').innerHTML =
+    '<div class="product-card core">' +
+      '<div class="product-label"><span class="product-label-dot"></span>Core Offer</div>' +
+      '<div class="product-title">' + d.core.title + '</div>' +
+      '<div class="product-price">' + d.core.price + '</div>' +
+      '<div class="product-desc">' + d.core.desc + '</div>' +
+    '</div>' +
+    '<div class="product-card bump">' +
+      '<div class="product-label"><span class="product-label-dot"></span>Bump</div>' +
+      '<div class="product-title">' + d.bump.title + '</div>' +
+      '<div class="product-price">' + d.bump.price + '</div>' +
+      '<div class="product-desc">' + d.bump.desc + '</div>' +
+    '</div>' +
+    '<div class="product-card upsell">' +
+      '<div class="product-label"><span class="product-label-dot"></span>Upsell</div>' +
+      '<div class="product-title">' + d.upsell.title + '</div>' +
+      '<div class="product-price">' + d.upsell.price + '</div>' +
+      '<div class="product-desc">' + d.upsell.desc + '</div>' +
+    '</div>';
+  document.getElementById('additionalGrid').innerHTML = d.additional.map(function(a) {
+    return '<div class="add-card"><div><div class="add-type">' + a.type + '</div><div class="add-name">' + a.name + '</div></div><div class="add-price">' + a.price + '</div></div>';
+  }).join('');
+}
+
+function buildFunnelTab() {
+  var d = reportData;
+  document.getElementById('revenueAmount').textContent = d.revenue + ' per buyer';
+
+  // Populate tooltip
+  var ttCore = document.getElementById('tt-core');
+  var ttBump = document.getElementById('tt-bump');
+  var ttUpsell = document.getElementById('tt-upsell');
+  var ttAvg = document.getElementById('tt-avg');
+  if (ttCore) ttCore.textContent = d.core.price;
+  if (ttBump) ttBump.textContent = d.bump.price;
+  if (ttUpsell) ttUpsell.textContent = d.upsell.price;
+  if (ttAvg) ttAvg.textContent = d.revenue;
+
+  // Revenue explainer box
+  var explainer = document.getElementById('revenueExplainer');
+  if (explainer) {
+    explainer.innerHTML =
+      '<strong>What does &ldquo;avg. revenue per buyer&rdquo; mean?</strong>' +
+      '<p style="margin:6px 0 10px;">Not every buyer will purchase all three products &mdash; but when they do, here is what your funnel earns. The average is calculated across all buyers based on typical conversion rates for each step.</p>' +
+      '<div class="rev-row"><span class="rev-label">&#9312; Core Offer <span class="rev-note">(every buyer)</span></span><span class="rev-price">' + d.core.price + '</span></div>' +
+      '<div class="rev-row"><span class="rev-label">&#9313; Bump Offer <span class="rev-note">(checkbox at checkout &mdash; ~30&ndash;40% of buyers)</span></span><span class="rev-price">' + d.bump.price + '</span></div>' +
+      '<div class="rev-row"><span class="rev-label">&#9314; Upsell Offer <span class="rev-note">(post-purchase page &mdash; ~10&ndash;20% of buyers)</span></span><span class="rev-price">' + d.upsell.price + '</span></div>' +
+      '<div class="rev-total"><span>Blended average per buyer across all conversions</span><span class="rev-total-amount">' + d.revenue + '</span></div>';
+  }
+
+  document.getElementById('funnelSteps').innerHTML = d.funnel.map(function(f) {
+    return '<div class="funnel-step"><div class="step-num">' + f.step + '</div><div class="step-body"><h4>' + f.title + '</h4><p>' + f.desc + '</p></div></div>';
+  }).join('');
+  var pt = PLATFORM_TIPS[selectedPlatform] || { emoji: '&#128241;', tip: 'Use ' + selectedPlatform + ' consistently to build your audience and drive traffic to your freebie opt-in.' };
+  document.getElementById('platformHighlight').innerHTML = '<div class="emoji">' + pt.emoji + '</div><div><h4>Platform: ' + selectedPlatform + '</h4><p>' + pt.tip + '</p></div>';
+}
+
+// ── EMAIL GATE FUNCTIONS ──
+function showEmailGate() {
+  document.getElementById('emailGate').classList.add('show');
+}
+
+function submitEmailGate() {
+  var name = document.getElementById('gateName').value.trim();
+  var email = document.getElementById('gateEmail').value.trim();
+  var errorEl = document.getElementById('gateError');
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!name || !email || !emailRegex.test(email)) {
+    errorEl.classList.add('show');
+    if (!name) document.getElementById('gateName').classList.add('error');
+    if (!email || !emailRegex.test(email)) document.getElementById('gateEmail').classList.add('error');
+    return;
+  }
+
+  errorEl.classList.remove('show');
+  document.getElementById('emailGate').classList.remove('show');
+
+  // Submit to GHL webhook — paste your GHL form webhook URL below
+  var GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
+  if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL_HERE') {
+    fetch(GHL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: name,
+        email: email,
+        source: 'Career-to-Creator Freedom Blueprint',
+        expertise: selectedSkill,
+        platform: selectedPlatform
+      })
+    }).catch(function(err) { console.log('GHL webhook error:', err); });
+  }
+
+  // Proceed to generate the report
+  generateReport();
+}
+
+function toggleTooltip(e) {
+  e.stopPropagation();
+  var tt = document.getElementById('revenueTooltip');
+  tt.classList.toggle('open');
+}
+document.addEventListener('click', function() {
+  var tt = document.getElementById('revenueTooltip');
+  if (tt) tt.classList.remove('open');
+});
+
+function buildPlannerTab() {
+  var d = reportData;
+  var weeks = [
+    { key: 'w1', label: 'WEEK 1', start: 1, desc: 'Define your niche, identify your ideal client, and name your first offer.' },
+    { key: 'w2', label: 'WEEK 2', start: 8, desc: 'Build your first digital product -- something your client can use immediately.' },
+    { key: 'w3', label: 'WEEK 3', start: 15, desc: 'Get your product in front of real buyers and make your first sale.' },
+    { key: 'w4', label: 'WEEK 4', start: 22, desc: 'Build your email list, create your bump offer, and set up your evergreen funnel.' }
+  ];
+  document.getElementById('plannerBlocks').innerHTML = weeks.map(function(w) {
+    var wk = d.planner[w.key];
+    var days = wk.days.map(function(day, i) {
+      var dn = w.start + i;
+      return '<div class="day-item"><input type="checkbox" class="day-check" id="chk' + dn + '"><div class="day-num">D' + dn + '</div><label class="day-text" for="chk' + dn + '" style="cursor:pointer;flex:1;">' + day + '</label></div>';
+    }).join('');
+    return '<div class="week-block"><div class="week-header"><div class="week-badge">' + w.label + '</div><div class="week-theme">' + wk.theme + '</div></div><p style="font-size:13px;color:#7a7a7a;margin:4px 0 12px;font-style:italic;">' + w.desc + '</p><div class="day-list">' + days + '</div><div class="week-affirmation">' + wk.affirmation + '</div></div>';
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Bind each skill card directly using mousedown for instant response
+  document.querySelectorAll('.skill-card').forEach(function(card) {
+    card.addEventListener('mousedown', function(e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      document.querySelectorAll('.skill-card').forEach(function(c) {
+        c.classList.remove('selected');
+      });
+      card.classList.add('selected');
+      var nameEl = card.querySelector('.skill-name');
+      selectedSkill = nameEl ? nameEl.textContent.trim() : '';
+      var ci = document.getElementById('customSkill');
+      if (ci) ci.value = '';
+      var notice = document.getElementById('aiRetryNotice');
+      if (notice) notice.classList.remove('show');
+      checkCta();
+    });
+  });
+
+  // Bind each platform card directly using mousedown
+  document.querySelectorAll('.platform-card').forEach(function(card) {
+    card.addEventListener('mousedown', function(e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      document.querySelectorAll('.platform-card').forEach(function(c) {
+        c.classList.remove('selected');
+      });
+      card.classList.add('selected');
+      selectedPlatform = card.getAttribute('data-platform') || '';
+      checkCta();
+    });
+  });
+});
+
+function startOver() {
+  selectedSkill = null;
+  selectedPlatform = null;
+  reportData = null;
+  document.querySelectorAll('.skill-card').forEach(function(c) { c.classList.remove('selected'); });
+  document.querySelectorAll('.platform-card').forEach(function(c) { c.classList.remove('selected')
