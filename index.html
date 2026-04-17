@@ -972,40 +972,15 @@
   }
 </style>
 
+
 <style>
-  /* ── GHL INTERACTION FIXES ── */
-  .skill-card,
-  .platform-card {
-    pointer-events: auto !important;
+  .skill-card, .platform-card {
     cursor: pointer !important;
-    position: relative !important;
-    z-index: 10 !important;
-    -webkit-user-select: none !important;
-    user-select: none !important;
+    -webkit-user-select: none;
+    user-select: none;
   }
-  .skill-grid,
-  .platform-grid {
-    pointer-events: auto !important;
-    position: relative !important;
-    z-index: 5 !important;
-  }
-  .skill-card:active,
-  .platform-card:active {
-    transform: scale(0.97) !important;
-  }
-  .main {
-    pointer-events: auto !important;
-    position: relative !important;
-    z-index: 2 !important;
-  }
-  /* Prevent GHL invisible overlays from blocking clicks */
-  .skill-card * ,
-  .platform-card * {
-    pointer-events: none !important;
-  }
-  .skill-card,
-  .platform-card {
-    pointer-events: auto !important;
+  .skill-card *, .platform-card * {
+    pointer-events: none;
   }
 </style>
 </head>
