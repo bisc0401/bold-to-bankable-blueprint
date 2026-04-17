@@ -1375,11 +1375,11 @@ function pickPlatform(el, name) {
 </script><script>
 'use strict';
 
-let selectedSkill = null;
-let selectedPlatform = null;
-let reportData = null;
+var selectedSkill = null;
+var selectedPlatform = null;
+var reportData = null;
 
-const SKILL_DATA = {
+var SKILL_DATA = {
   "HR & People Operations": {
     core: { title: "The HR Expert's Guide to Consulting on Your Own Terms", price: "$37", desc: "Position yourself as an independent HR consultant" },
     bump: { title: "10 HR Policies Every Small Business Needs", price: "$17", desc: "Done-for-you policy documents" },
@@ -2351,7 +2351,7 @@ const SKILL_DATA = {
 };
 
 // ── AI-POWERED CUSTOM SKILL ──
-const customSkillCache = {};
+var customSkillCache = {};
 
 async function buildCustomSkillData(skill) {
   if (customSkillCache[skill]) return customSkillCache[skill];
@@ -2447,7 +2447,7 @@ async function getSkillData(skill) {
 }
 
 // ── PLATFORM TIPS ──
-const PLATFORM_TIPS = {
+var PLATFORM_TIPS = {
   'YouTube': { emoji: '&#127909;', tip: 'Run a tutorial-style YouTube channel targeting your niche with keyword-optimized titles. Long-form content builds deep trust with buyers.' },
   'Facebook': { emoji: '&#128216;', tip: 'Start a Facebook Group for your ideal client. Run $10/day Sponsored Content ads to drive group members to your freebie opt-in.' },
   'LinkedIn': { emoji: '&#128188;', tip: 'Run a $10/day LinkedIn Sponsored Content ad targeting specific job titles. This is the highest-intent platform for expert offers.' },
