@@ -972,15 +972,40 @@
   }
 </style>
 
-
 <style>
-  .skill-card, .platform-card {
+  /* ── GHL INTERACTION FIXES ── */
+  .skill-card,
+  .platform-card {
+    pointer-events: auto !important;
     cursor: pointer !important;
-    -webkit-user-select: none;
-    user-select: none;
+    position: relative !important;
+    z-index: 10 !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
   }
-  .skill-card *, .platform-card * {
-    pointer-events: none;
+  .skill-grid,
+  .platform-grid {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  .skill-card:active,
+  .platform-card:active {
+    transform: scale(0.97) !important;
+  }
+  .main {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  /* Prevent GHL invisible overlays from blocking clicks */
+  .skill-card * ,
+  .platform-card * {
+    pointer-events: none !important;
+  }
+  .skill-card,
+  .platform-card {
+    pointer-events: auto !important;
   }
 </style>
 </head>
@@ -1073,82 +1098,82 @@
 
     <p style="font-size:13.5px;font-weight:700;color:#a8841e;margin-top:20px;margin-bottom:10px;letter-spacing:0.04em;">Start here &mdash; this determines your entire blueprint</p>
     <div class="skill-grid">
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'HR & People Operations')">
         <span class="skill-emoji">👥</span>
         <div class="skill-name">HR & People Operations</div>
         <div class="skill-desc">Recruiting, culture, talent</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Finance & Accounting')">
         <span class="skill-emoji">💰</span>
         <div class="skill-name">Finance & Accounting</div>
         <div class="skill-desc">Budgets, reporting, CFO</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Marketing & Communications')">
         <span class="skill-emoji">📣</span>
         <div class="skill-name">Marketing & Communications</div>
         <div class="skill-desc">Brand, campaigns, copy</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Operations & Project Mgmt')">
         <span class="skill-emoji">⚙️</span>
         <div class="skill-name">Operations & Project Mgmt</div>
         <div class="skill-desc">Process, efficiency, PMO</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Manager / Supervisor / Director')">
         <span class="skill-emoji">🏆</span>
         <div class="skill-name">Manager / Supervisor / Director</div>
         <div class="skill-desc">Leadership, teams, strategy</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Healthcare & Wellness')">
         <span class="skill-emoji">🩺</span>
         <div class="skill-name">Healthcare & Wellness</div>
         <div class="skill-desc">Clinical, admin, wellness</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Education & Training')">
         <span class="skill-emoji">📚</span>
         <div class="skill-name">Education & Training</div>
         <div class="skill-desc">Teaching, L&D, curriculum</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Technology & IT')">
         <span class="skill-emoji">💻</span>
         <div class="skill-name">Technology & IT</div>
         <div class="skill-desc">Systems, dev, cybersecurity</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Legal & Compliance')">
         <span class="skill-emoji">⚖️</span>
         <div class="skill-name">Legal & Compliance</div>
         <div class="skill-desc">Policy, risk, contracts</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Sales & Business Dev')">
         <span class="skill-emoji">🤝</span>
         <div class="skill-name">Sales & Business Dev</div>
         <div class="skill-desc">Revenue, partnerships, CRM</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Social Work & Counseling')">
         <span class="skill-emoji">🌱</span>
         <div class="skill-name">Social Work & Counseling</div>
         <div class="skill-desc">Advocacy, coaching, support</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Executive Assistant & Admin')">
         <span class="skill-emoji">📋</span>
         <div class="skill-name">Executive Assistant & Admin</div>
         <div class="skill-desc">Coordination, systems, support</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Ministry & Faith Leadership')">
         <span class="skill-emoji">✝️</span>
         <div class="skill-name">Ministry & Faith Leadership</div>
         <div class="skill-desc">Pastoral, coaching, discipleship</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Realtor / Real Estate Broker')">
         <span class="skill-emoji">🏡</span>
         <div class="skill-name">Realtor / Real Estate Broker</div>
         <div class="skill-desc">Buying, selling, investing</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Customer Service & Client Relations')">
         <span class="skill-emoji">🎧</span>
         <div class="skill-name">Customer Service & Client Relations</div>
         <div class="skill-desc">Support, retention, experience</div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" onclick="pickSkill(this,'Insurance & Financial Services')">
         <span class="skill-emoji">🛡️</span>
         <div class="skill-name">Insurance & Financial Services</div>
         <div class="skill-desc">Sales, policies, planning</div>
@@ -1171,42 +1196,42 @@
       <h3>Where will you show up consistently?</h3>
       <p>You don't need to be everywhere &mdash; just choose one platform to start and stay consistent.</p>
       <div class="platform-grid">
-        <div class="platform-card" data-platform="YouTube">
+        <div class="platform-card" data-platform="YouTube" onclick="pickPlatform(this,'YouTube')">
           <span class="platform-emoji">🎬</span>
           <div class="platform-name">YouTube</div>
           <div class="platform-desc">Tutorial & education videos</div>
         </div>
-        <div class="platform-card" data-platform="Facebook">
+        <div class="platform-card" data-platform="Facebook" onclick="pickPlatform(this,'Facebook')">
           <span class="platform-emoji">📘</span>
           <div class="platform-name">Facebook</div>
           <div class="platform-desc">Groups, Lives & Ads</div>
         </div>
-        <div class="platform-card" data-platform="LinkedIn">
+        <div class="platform-card" data-platform="LinkedIn" onclick="pickPlatform(this,'LinkedIn')">
           <span class="platform-emoji">💼</span>
           <div class="platform-name">LinkedIn</div>
           <div class="platform-desc">Professional & B2B reach</div>
         </div>
-        <div class="platform-card" data-platform="Instagram">
+        <div class="platform-card" data-platform="Instagram" onclick="pickPlatform(this,'Instagram')">
           <span class="platform-emoji">📸</span>
           <div class="platform-name">Instagram</div>
           <div class="platform-desc">Reels, Stories & visuals</div>
         </div>
-        <div class="platform-card" data-platform="TikTok / Reels">
+        <div class="platform-card" data-platform="TikTok / Reels" onclick="pickPlatform(this,'TikTok / Reels')">
           <span class="platform-emoji">🎵</span>
           <div class="platform-name">TikTok / Reels</div>
           <div class="platform-desc">Short-form viral video</div>
         </div>
-        <div class="platform-card" data-platform="Podcast">
+        <div class="platform-card" data-platform="Podcast" onclick="pickPlatform(this,'Podcast')">
           <span class="platform-emoji">🎙️</span>
           <div class="platform-name">Podcast</div>
           <div class="platform-desc">Audio for busy listeners</div>
         </div>
-        <div class="platform-card" data-platform="Email / Blog">
+        <div class="platform-card" data-platform="Email / Blog" onclick="pickPlatform(this,'Email / Blog')">
           <span class="platform-emoji">✉️</span>
           <div class="platform-name">Email / Blog</div>
           <div class="platform-desc">Written content & SEO</div>
         </div>
-        <div class="platform-card" data-platform="Pinterest">
+        <div class="platform-card" data-platform="Pinterest" onclick="pickPlatform(this,'Pinterest')">
           <span class="platform-emoji">📌</span>
           <div class="platform-name">Pinterest</div>
           <div class="platform-desc">Visual search & evergreen</div>
@@ -1326,6 +1351,11 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+function pickSkill(el, name) {
+  var cards = document.querySelectorAll('.skill-card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].classList.remove('selected');
+  }
   el.classList.add('selected');
   selectedSkill = name;
   var ci = document.getElementById('customSkill');
@@ -1333,39 +1363,15 @@
   checkCta();
 }
 
+function pickPlatform(el, name) {
+  var cards = document.querySelectorAll('.platform-card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].classList.remove('selected');
+  }
   el.classList.add('selected');
   selectedPlatform = name;
   checkCta();
 }
-
-// Card selection - exact pattern confirmed working
-document.querySelectorAll('.skill-card').forEach(function(t) {
-  t.onclick = function() {
-    document.querySelectorAll('.skill-card').forEach(function(c) {
-      c.classList.remove('selected');
-    });
-    t.classList.add('selected');
-    var nameEl = t.querySelector('.skill-name');
-    if (nameEl) {
-      selectedSkill = nameEl.textContent.trim();
-      var ci = document.getElementById('customSkill');
-      if (ci) ci.value = '';
-      checkCta();
-    }
-  };
-});
-
-document.querySelectorAll('.platform-card').forEach(function(t) {
-  t.onclick = function() {
-    document.querySelectorAll('.platform-card').forEach(function(c) {
-      c.classList.remove('selected');
-    });
-    t.classList.add('selected');
-    selectedPlatform = t.getAttribute('data-platform') || '';
-    checkCta();
-  };
-});
-
 </script><script>
 'use strict';
 
@@ -2684,4 +2690,36 @@ function startOver() {
   selectedPlatform = null;
   reportData = null;
   document.querySelectorAll('.skill-card').forEach(function(c) { c.classList.remove('selected'); });
-  document.querySelectorAll('.platform-card').forEach(function(c) { c.classList.remove('selected')
+  document.querySelectorAll('.platform-card').forEach(function(c) { c.classList.remove('selected')); }
+  checkCta();
+}
+
+</script>
+<script>
+(function bindCards() {
+  var sc = document.querySelectorAll('.skill-card');
+  var pc = document.querySelectorAll('.platform-card');
+  sc.forEach(function(t) {
+    t.onclick = function() {
+      sc.forEach(function(c) { c.classList.remove('selected'); });
+      t.classList.add('selected');
+      var n = t.querySelector('.skill-name');
+      if (n) { selectedSkill = n.textContent.trim(); }
+      var ci = document.getElementById('customSkill');
+      if (ci) ci.value = '';
+      checkCta();
+    };
+  });
+  pc.forEach(function(t) {
+    t.onclick = function() {
+      pc.forEach(function(c) { c.classList.remove('selected'); });
+      t.classList.add('selected');
+      selectedPlatform = t.getAttribute('data-platform') || '';
+      checkCta();
+    };
+  });
+})();
+</script>
+
+</body>
+</html>
