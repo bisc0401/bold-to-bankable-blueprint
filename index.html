@@ -1178,19 +1178,29 @@
         <div class="skill-name">Insurance & Financial Services</div>
         <div class="skill-desc">Sales, policies, planning</div>
       </div>
-    </div>
-
-    <div class="ai-retry-notice" id="aiRetryNotice">
-      <div class="ai-retry-icon">&#9888;</div>
-      <div class="ai-retry-text">
-        <p><strong>Our AI is taking a moment to think.</strong> This can happen if the connection is slow or the server is busy. Your expertise is not lost — just click the button below to try again.</p>
-        <button class="ai-retry-btn" onclick="retryAiGeneration()">Try Again &#8594;</button>
+      <div class="skill-card" onclick="pickSkill(this,'Nonprofit & Community Leadership')">
+        <span class="skill-emoji">🤲</span>
+        <div class="skill-name">Nonprofit & Community Leadership</div>
+        <div class="skill-desc">Programs, grants, impact</div>
+      </div>
+      <div class="skill-card" onclick="pickSkill(this,'Supply Chain & Logistics')">
+        <span class="skill-emoji">🚚</span>
+        <div class="skill-name">Supply Chain & Logistics</div>
+        <div class="skill-desc">Operations, sourcing, systems</div>
+      </div>
+      <div class="skill-card" onclick="pickSkill(this,'Event Planning & Hospitality')">
+        <span class="skill-emoji">🎯</span>
+        <div class="skill-name">Event Planning & Hospitality</div>
+        <div class="skill-desc">Events, venues, experiences</div>
+      </div>
+      <div class="skill-card" onclick="pickSkill(this,'Banking & Financial Planning')">
+        <span class="skill-emoji">🏦</span>
+        <div class="skill-name">Banking & Financial Planning</div>
+        <div class="skill-desc">Wealth, lending, planning</div>
       </div>
     </div>
-    <div class="custom-box">
-      <label>My expertise is not listed — here's what I do:</label>
-      <input type="text" id="customSkill" placeholder="e.g. Supply Chain Manager, Graphic Designer, Event Planner..." oninput="handleCustomSkill()" />
-    </div>
+
+
 
     <div class="platform-section">
       <h3>Where will you show up consistently?</h3>
@@ -1407,6 +1417,8 @@ var SKILL_DATA = {
         "Choose your core product: policy templates, onboarding kit, or HR audit guide",
         "Write your credibility paragraph, your years of experience in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I spent years developing people. Now it is time to invest in myself." },
       w2: { theme: "CREATE", days: [
@@ -1417,6 +1429,8 @@ var SKILL_DATA = {
         "Research what HR consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The cultures I built for others -- I am now building for my own legacy." },
@@ -1429,6 +1443,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My HR expertise is rare, valuable, and exactly what small businesses need." },
       w4: { theme: "GROW", days: [
@@ -1439,6 +1455,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook ad targeting small business owners",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 YouTube videos",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I know how to hire, lead, and retain talent. I can run my own business." }
@@ -1472,6 +1490,8 @@ var SKILL_DATA = {
         "Choose your core product: financial health checklist, budget template, or cash flow guide",
         "Write your credibility paragraph, your experience in finance in 5 powerful sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I managed millions for others. Now I am building millions for myself." },
       w2: { theme: "CREATE", days: [
@@ -1482,6 +1502,8 @@ var SKILL_DATA = {
         "Research what fractional CFOs and finance consultants charge for similar products",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The reports I built for others -- I am now building my own bottom line." },
@@ -1494,6 +1516,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneur networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My financial expertise is exactly what small businesses need to survive and thrive." },
       w4: { theme: "GROW", days: [
@@ -1504,6 +1528,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook ad targeting small business owners",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 YouTube or LinkedIn videos",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I understand money at a level most people never will. That is my superpower." }
@@ -1537,6 +1563,8 @@ var SKILL_DATA = {
         "Choose your core product: content calendar, brand guide template, or launch checklist",
         "Write your credibility paragraph, your marketing wins in 5 compelling sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I built brands for others. Now I am building my own." },
       w2: { theme: "CREATE", days: [
@@ -1547,6 +1575,8 @@ var SKILL_DATA = {
         "Research what marketing consultants and strategists charge for similar products",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every campaign I ran was practice for the business I am building now." },
@@ -1559,6 +1589,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My marketing expertise can change the trajectory of a small business overnight." },
       w4: { theme: "GROW", days: [
@@ -1569,6 +1601,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook or Instagram ad targeting small business owners",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 pieces of long-form content",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I know how to get attention, build trust, and drive action. That is currency." }
@@ -1602,6 +1636,8 @@ var SKILL_DATA = {
         "Choose your core product: SOP templates, process audit guide, or project management toolkit",
         "Write your credibility paragraph, your operations wins in 5 powerful sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have built the systems that keep organizations running. Now I build for myself." },
       w2: { theme: "CREATE", days: [
@@ -1612,6 +1648,8 @@ var SKILL_DATA = {
         "Research what fractional COOs and operations consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The processes I designed for others -- I am now designing for my own freedom." },
@@ -1624,6 +1662,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My operations expertise is the backbone every growing business desperately needs." },
       w4: { theme: "GROW", days: [
@@ -1634,6 +1674,8 @@ var SKILL_DATA = {
         "Launch a $5/day LinkedIn ad targeting small business owners and startup founders",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 YouTube or LinkedIn videos",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I turn chaos into clarity. That skill is worth more than I have ever been paid for it." }
@@ -1667,6 +1709,8 @@ var SKILL_DATA = {
         "Choose your core product: leadership guide, new manager toolkit, or team performance templates",
         "Write your credibility paragraph, your leadership wins and team results in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I developed leaders for organizations. Now I develop my own legacy." },
       w2: { theme: "CREATE", days: [
@@ -1677,6 +1721,8 @@ var SKILL_DATA = {
         "Research what executive coaches and leadership consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague or former direct report for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every team I built was practice for the business I am creating now." },
@@ -1689,6 +1735,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues or mentees to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My leadership experience is exactly what the next generation of managers needs." },
       w4: { theme: "GROW", days: [
@@ -1699,6 +1747,8 @@ var SKILL_DATA = {
         "Launch a $5/day LinkedIn ad targeting managers, supervisors, and team leads",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan a webinar or LinkedIn Live on leadership",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I know how to bring out the best in people. That gift deserves to be a business." }
@@ -1732,6 +1782,8 @@ var SKILL_DATA = {
         "Choose your core product: wellness guide, self-care planner, or caregiver resource kit",
         "Write your credibility paragraph, your healthcare experience and patient outcomes in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have helped people heal. Now I am building a business that does the same for me." },
       w2: { theme: "CREATE", days: [
@@ -1742,6 +1794,8 @@ var SKILL_DATA = {
         "Research what health coaches and wellness consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The health knowledge I give away for free can become a product that serves thousands." },
@@ -1754,6 +1808,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My healthcare expertise is the foundation for a business that heals and earns." },
       w4: { theme: "GROW", days: [
@@ -1764,6 +1820,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook ad targeting busy women or healthcare professionals",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 Instagram Lives or YouTube videos",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I know what it takes to be well. Teaching that is both my gift and my business." }
@@ -1797,6 +1855,8 @@ var SKILL_DATA = {
         "Choose your core product: mini course, training guide, or curriculum template pack",
         "Write your credibility paragraph, your teaching experience and student outcomes in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have spent years shaping minds. Now I shape my own income." },
       w2: { theme: "CREATE", days: [
@@ -1807,6 +1867,8 @@ var SKILL_DATA = {
         "Research what online course creators in your niche charge for similar programs",
         "Set up Gumroad, Payhip, or Teachable to deliver your product digitally",
         "Send your draft to 1 trusted colleague or former student for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every lesson plan I wrote was practice for the course that will change my life." },
@@ -1819,6 +1881,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues or students to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My teaching expertise can reach thousands online, not just the students in my classroom." },
       w4: { theme: "GROW", days: [
@@ -1829,6 +1893,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook or YouTube ad targeting adult learners in your subject area",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan a live webinar or workshop",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Teaching is my superpower. Online, it becomes a business that earns while I sleep." }
@@ -1862,6 +1928,8 @@ var SKILL_DATA = {
         "Choose your core product: tech audit checklist, cybersecurity guide, or tech stack recommendation guide",
         "Write your credibility paragraph, your systems and tech wins in 5 powerful sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have built the digital infrastructure for organizations. Now I build my own." },
       w2: { theme: "CREATE", days: [
@@ -1872,6 +1940,8 @@ var SKILL_DATA = {
         "Research what IT consultants and fractional CTOs charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The solutions I built for corporations can now protect and serve small businesses too." },
@@ -1884,6 +1954,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My tech expertise can protect and power businesses that could never afford a full-time CTO." },
       w4: { theme: "GROW", days: [
@@ -1894,6 +1966,8 @@ var SKILL_DATA = {
         "Launch a $5/day LinkedIn ad targeting small business owners and startup founders",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 YouTube tutorials or LinkedIn posts",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I speak the language of technology and business. That fluency is my fortune." }
@@ -1927,6 +2001,8 @@ var SKILL_DATA = {
         "Choose your core product: contract template pack, legal protection guide, or compliance checklist",
         "Write your credibility paragraph, your legal expertise and risk mitigation wins in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have protected organizations worth millions. Now I protect my own future." },
       w2: { theme: "CREATE", days: [
@@ -1937,6 +2013,8 @@ var SKILL_DATA = {
         "Research what legal consultants and contract template sellers charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The legal frameworks I built for others now form the foundation of my business." },
@@ -1949,6 +2027,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneur networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My legal knowledge protects businesses. Packaged right, it can also build mine." },
       w4: { theme: "GROW", days: [
@@ -1959,6 +2039,8 @@ var SKILL_DATA = {
         "Launch a $5/day LinkedIn or Facebook ad targeting small business owners and online entrepreneurs",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 educational content pieces on legal basics",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The law is complex. My ability to simplify it is a service the world needs and will pay for." }
@@ -1992,6 +2074,8 @@ var SKILL_DATA = {
         "Choose your core product: sales script guide, discovery call framework, or pipeline tracker",
         "Write your credibility paragraph, your revenue wins and sales milestones in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have closed deals worth millions for others. Now I am closing deals for myself." },
       w2: { theme: "CREATE", days: [
@@ -2002,6 +2086,8 @@ var SKILL_DATA = {
         "Research what sales coaches and revenue consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every sale I made for someone else was practice for the business I am selling now." },
@@ -2014,6 +2100,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneurial networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My sales expertise is the bridge between a great offer and a full client roster." },
       w4: { theme: "GROW", days: [
@@ -2024,6 +2112,8 @@ var SKILL_DATA = {
         "Launch a $5/day LinkedIn or Facebook ad targeting coaches, consultants, and service business owners",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan a live sales training or webinar",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Selling is a skill most people fear and I have mastered. That mastery is my business." }
@@ -2057,6 +2147,8 @@ var SKILL_DATA = {
         "Choose your core product: a life coaching guide, resilience journal, or self-assessment workbook",
         "Write your credibility paragraph, your years of helping others transform in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have walked people through their darkest moments. I can walk through mine into the light." },
       w2: { theme: "CREATE", days: [
@@ -2067,6 +2159,8 @@ var SKILL_DATA = {
         "Research what life coaches and wellness consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague or former client for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The tools I used to heal others can now be packaged to heal many more." },
@@ -2079,6 +2173,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their communities",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My compassion is not a weakness. It is the foundation of a business that changes lives." },
       w4: { theme: "GROW", days: [
@@ -2089,6 +2185,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook or Instagram ad targeting women in personal or professional transition",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan a virtual workshop or group coaching experience",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Helping people grow has always been my calling. Now it is also my income stream." }
@@ -2122,6 +2220,8 @@ var SKILL_DATA = {
         "Choose your core product: VA services guide, inbox management system, or business operations template pack",
         "Write your credibility paragraph, your administrative expertise and the executives you have supported in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have been the backbone of executives' success. Now I am the backbone of my own." },
       w2: { theme: "CREATE", days: [
@@ -2132,6 +2232,8 @@ var SKILL_DATA = {
         "Research what virtual assistants and online business managers charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The systems I built for others are the systems that will build my business." },
@@ -2144,6 +2246,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues or executives you have supported to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My organizational genius keeps businesses running. Now it runs a business of my own." },
       w4: { theme: "GROW", days: [
@@ -2154,6 +2258,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook or Instagram ad targeting coaches, consultants, and online business owners",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 pieces of content on productivity and business systems",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Behind every thriving leader is someone like me. Now I lead for myself." }
@@ -2187,6 +2293,8 @@ var SKILL_DATA = {
         "Choose your core product: a faith-based life coaching guide, devotional workbook, or purpose-finding framework",
         "Write your credibility paragraph, your ministry experience and the lives you have impacted in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "God equipped me to serve a congregation. He also equipped me to serve the marketplace." },
       w2: { theme: "CREATE", days: [
@@ -2197,6 +2305,8 @@ var SKILL_DATA = {
         "Research what Christian life coaches and faith-based consultants charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Share your draft with 1 trusted minister or mentor for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every sermon I preached was practice for the message I am now packaging for the world." },
@@ -2209,6 +2319,8 @@ var SKILL_DATA = {
         "Ask 2 ministry colleagues to share your offer with their congregations or networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My calling does not stop at the church doors. It extends into every business I build." },
       w4: { theme: "GROW", days: [
@@ -2219,6 +2331,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook ad targeting Christian women, faith-led entrepreneurs, and ministry leaders",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan a virtual faith and business workshop or retreat",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I was called to lead. In my business, that calling becomes legacy." }
@@ -2252,6 +2366,8 @@ var SKILL_DATA = {
         "Choose your core product: home buyer guide, investing starter guide, or new agent coaching kit",
         "Write your credibility paragraph, your transactions, clients served, and results in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have helped families build wealth through real estate. Now I build my own through expertise." },
       w2: { theme: "CREATE", days: [
@@ -2262,6 +2378,8 @@ var SKILL_DATA = {
         "Research what real estate educators and investing coaches charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every transaction I closed was preparing me to open a new door for myself." },
@@ -2274,6 +2392,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues or clients to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My real estate knowledge is the key that unlocks financial freedom for others." },
       w4: { theme: "GROW", days: [
@@ -2284,6 +2404,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook or Instagram ad targeting renters, first-time buyers, or real estate investors",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan a live real estate Q&A or market update video",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Real estate built generational wealth for my clients. Now I build my own generational legacy." }
@@ -2317,6 +2439,8 @@ var SKILL_DATA = {
         "Choose your core product: brand style guide template, design checklist, or mini branding course",
         "Write your credibility paragraph, your design experience and client transformations in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have built visual identities for others for years. Now I build my own brand and my own income." },
       w2: { theme: "CREATE", days: [
@@ -2327,6 +2451,8 @@ var SKILL_DATA = {
         "Research what brand designers and visual consultants charge for similar digital products",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague or former client for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Every brand I designed for someone else was practice for the business I am designing for myself." },
@@ -2339,6 +2465,8 @@ var SKILL_DATA = {
         "Ask 2 former clients or colleagues to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My design eye sees what others cannot. That vision is a product the market will pay for." },
       w4: { theme: "GROW", days: [
@@ -2349,6 +2477,8 @@ var SKILL_DATA = {
         "Launch a $5/day Instagram or Pinterest ad targeting small business owners and entrepreneurs",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 pieces of visual content showcasing your expertise",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Design is not just what I do. It is how I see the world, and that perspective is my business." }
@@ -2382,6 +2512,8 @@ var SKILL_DATA = {
         "Choose your core product: financial literacy guide, coverage checklist, or family protection workbook",
         "Write your credibility paragraph, your years in financial services and the clients you have protected in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have protected families for years. Now I build a business that protects my own future." },
       w2: { theme: "CREATE", days: [
@@ -2392,6 +2524,8 @@ var SKILL_DATA = {
         "Research what financial educators and money coaches charge for similar digital products",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The financial knowledge I used to sell policies can now educate and empower thousands." },
@@ -2404,6 +2538,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues or clients to share your offer with their networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "My financial expertise can change the trajectory of an entire family. That is worth building a business around." },
       w4: { theme: "GROW", days: [
@@ -2415,11 +2551,273 @@ var SKILL_DATA = {
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 Facebook Lives or YouTube videos on financial topics",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I spent years helping others get financially protected. Now I build financial freedom for myself." }
     }
   },
 
+
+  "Nonprofit & Community Leadership": {
+    core: { title: "The Nonprofit Leader's Guide to Building a Consulting or Coaching Practice", price: "$37", desc: "Package your program management, grant writing, and community impact expertise into a digital offer" },
+    bump: { title: "Grant Writing Starter Kit: Templates & Tips for Small Nonprofits", price: "$17", desc: "Done-for-you templates for funding proposals and impact reports" },
+    upsell: { title: "From Mission-Driven Employee to Purpose-Driven Entrepreneur: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a consulting or coaching business from your nonprofit career" },
+    additional: [
+      { type: "GUIDE", name: "The Community Impact Playbook: How to Turn Your Nonprofit Experience Into a Consulting Practice", price: "$27" },
+      { type: "TEMPLATE", name: "Nonprofit Program Planning Templates Pack", price: "$17" },
+      { type: "COURSE", name: "Grant Writing Fundamentals for Small Organizations", price: "$97" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Nonprofit Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Facebook posts about nonprofit leadership, community impact, and mission-driven entrepreneurship drive to your freebie opt-in." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product to warm buyers already interested in your expertise." },
+      { step: 3, title: "Checkout bump", desc: "Grant Writing Starter Kit appears as a checkbox. One click adds it without leaving the page." },
+      { step: 4, title: "Post-purchase upsell", desc: "The full transition blueprint is their natural next step after the core offer." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every area of nonprofit work you have experience in: programs, fundraising, grants, community outreach, leadership",
+        "Circle the ONE area where you have created the most measurable community impact",
+        "Write: I help [who] with [specific nonprofit challenge] so they can [result]",
+        "Research 5 small nonprofits or community organizations struggling with the problem you solve",
+        "List 3 questions nonprofit leaders ask you constantly",
+        "Choose your core product: consulting guide, grant template pack, or leadership workbook",
+        "Write your credibility paragraph — your years of nonprofit impact in 5 sentences",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "The mission I served for others is now the foundation of my own." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Nonprofit Consulting Guide or Community Impact Playbook",
+        "Draft your first template, guide section, or planning worksheet",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what nonprofit consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "My experience creating impact for communities can now create income for me." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Facebook: share the #1 mistake small nonprofits make that limits their community impact",
+        "Join 2 Facebook groups for nonprofit leaders or social entrepreneurs and introduce yourself",
+        "DM 5 people in your network who lead small nonprofits or community organizations",
+        "Record a 90-second video: The one thing every nonprofit needs before they apply for grants",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their networks",
+        "Follow up with every person who showed interest",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "Years of serving my community prepared me to lead my own business." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Grant Writing Mistakes That Cost Nonprofits Thousands",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a done-for-you nonprofit program planning template for $17",
+        "Launch a $5/day Facebook ad targeting nonprofit directors and community leaders",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube videos on nonprofit topics",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "I built programs that changed lives. Now I build a business that changes mine." }
+    }
+  },
+
+  "Supply Chain & Logistics": {
+    core: { title: "The Supply Chain Expert's Guide to Consulting and Digital Education", price: "$37", desc: "Package your operations, sourcing, and logistics expertise into a digital product or consulting offer" },
+    bump: { title: "Supply Chain Audit Checklist for Small Business Owners", price: "$17", desc: "Done-for-you checklist to help entrepreneurs identify and fix supply chain gaps" },
+    upsell: { title: "From Logistics Manager to Independent Consultant: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a supply chain consulting or education business" },
+    additional: [
+      { type: "GUIDE", name: "The Small Business Owner's Guide to Building a Resilient Supply Chain", price: "$27" },
+      { type: "TEMPLATE", name: "Vendor Evaluation & Sourcing Templates Pack", price: "$17" },
+      { type: "COURSE", name: "Supply Chain Fundamentals for Entrepreneurs", price: "$97" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Supply Chain Consulting Practice", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "LinkedIn and Facebook posts about supply chain disruptions, sourcing strategies, and operational efficiency drive to your freebie opt-in." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product to warm buyers." },
+      { step: 3, title: "Checkout bump", desc: "Audit checklist appears as a checkbox at checkout." },
+      { step: 4, title: "Post-purchase upsell", desc: "The full consulting transition blueprint is the natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every area of supply chain you have worked in: procurement, logistics, inventory, vendor management, distribution",
+        "Circle the ONE area where you have saved companies the most time or money",
+        "Write: I help [who] with [specific supply chain problem] so they can [result]",
+        "Research 5 small businesses struggling with supply chain or sourcing challenges",
+        "List 3 supply chain questions entrepreneurs ask you constantly",
+        "Choose your core product: consulting guide, audit checklist, or sourcing template pack",
+        "Write your credibility paragraph — your years in supply chain in 5 sentences",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "I optimized supply chains for companies. Now I optimize my own path to freedom." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Supply Chain Guide or Vendor Sourcing Playbook",
+        "Draft your first checklist, template, or guide section",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what supply chain consultants charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "The systems I built for others are now the foundation of my own business." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on LinkedIn: share the #1 supply chain mistake small businesses make",
+        "Join 2 Facebook or LinkedIn groups for entrepreneurs and introduce yourself as a supply chain expert",
+        "DM 5 entrepreneurs in your network who struggle with sourcing or operations",
+        "Record a 90-second video: Why most small businesses have a supply chain problem they don't know about",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues to share your offer with their networks",
+        "Follow up with every person who showed interest",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "My operational expertise is exactly what growing businesses need right now." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Supply Chain Red Flags Every Small Business Owner Should Know",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a vendor evaluation template pack for $17",
+        "Launch a $5/day Facebook ad targeting small business owners and entrepreneurs",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 LinkedIn articles on supply chain topics",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "I spent years moving products efficiently. Now I move my life forward." }
+    }
+  },
+
+  "Event Planning & Hospitality": {
+    core: { title: "The Event Professional's Guide to Launching a Digital Education or Consulting Business", price: "$37", desc: "Package your event planning, venue, and hospitality expertise into a digital product or consulting offer" },
+    bump: { title: "Event Planning Checklist & Timeline Templates Pack", price: "$17", desc: "Done-for-you planning checklists and timelines for corporate and social events" },
+    upsell: { title: "From Event Planner to Online Educator: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a digital education or consulting business from your event expertise" },
+    additional: [
+      { type: "GUIDE", name: "The Complete Corporate Event Planning Guide for In-House Teams", price: "$27" },
+      { type: "TEMPLATE", name: "Vendor Contract & Budget Templates for Event Planners", price: "$17" },
+      { type: "COURSE", name: "Event Planning Fundamentals: From Concept to Execution", price: "$97" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Event Consulting or Education Business", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Facebook and Instagram posts about event planning tips, behind the scenes, and common mistakes drive to your freebie opt-in." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product to warm buyers." },
+      { step: 3, title: "Checkout bump", desc: "Planning checklist pack appears as a checkbox at checkout." },
+      { step: 4, title: "Post-purchase upsell", desc: "The full transition blueprint is the natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every type of event you have planned or managed: corporate, weddings, conferences, galas, nonprofit events",
+        "Circle the ONE area where you have delivered the most memorable results",
+        "Write: I help [who] plan [specific type of event] so they can [result]",
+        "Research 5 businesses or individuals who struggle with event planning",
+        "List 3 event planning questions people ask you constantly",
+        "Choose your core product: planning guide, checklist pack, or budget template",
+        "Write your credibility paragraph — your years of event experience in 5 sentences",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "Every event I planned was a masterpiece. Now I plan my own success." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Event Planning Guide or Corporate Event Playbook",
+        "Draft your first checklist, timeline template, or planning guide section",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what event consultants and educators charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "The attention to detail I brought to every event I will now bring to my business." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Facebook or Instagram: share the #1 event planning mistake that ruins otherwise perfect events",
+        "Join 2 Facebook groups for small business owners or wedding/event professionals",
+        "DM 5 people in your network who are planning events or need event help",
+        "Record a 90-second video: The one thing every event planner does that saves time and money",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or clients to share your offer with their networks",
+        "Follow up with every person who showed interest",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "I created experiences that people still talk about. My business will be no different." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: The Ultimate Event Planning Checklist for First-Time Corporate Event Planners",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a vendor contract template pack for $17",
+        "Launch a $5/day Facebook ad targeting small business owners and event hosts",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube videos on event planning tips",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "Years of creating magic for others prepared me to create something magical for myself." }
+    }
+  },
+
+  "Banking & Financial Planning": {
+    core: { title: "The Banking Professional's Guide to Launching a Financial Education or Coaching Business", price: "$37", desc: "Package your banking, lending, and financial planning expertise into a digital product or coaching offer" },
+    bump: { title: "Personal Finance Starter Workbook: The Basics Your Bank Never Taught You", price: "$17", desc: "Done-for-you financial literacy workbook for everyday people" },
+    upsell: { title: "From Bank Employee to Financial Educator: The Transition Blueprint", price: "$67", desc: "Full roadmap to build a financial education or coaching business from your banking career" },
+    additional: [
+      { type: "GUIDE", name: "The First-Time Homebuyer's Financial Readiness Guide", price: "$27" },
+      { type: "TEMPLATE", name: "Personal Budget & Debt Payoff Tracker Templates", price: "$17" },
+      { type: "COURSE", name: "Financial Literacy 101: What Your Bank Wishes You Already Knew", price: "$97" },
+      { type: "PLANNER", name: "30-Day Plan to Launch Your Financial Education Business", price: "$37" }
+    ],
+    funnel: [
+      { step: 1, title: "Drive traffic with content", desc: "Facebook posts about financial literacy, credit, budgeting, and money mistakes drive to your freebie opt-in." },
+      { step: 2, title: "Thank-you page offer", desc: "Immediately offers your Core Product to warm buyers." },
+      { step: 3, title: "Checkout bump", desc: "Personal finance workbook appears as a checkbox at checkout." },
+      { step: 4, title: "Post-purchase upsell", desc: "The full financial educator transition blueprint is the natural next step." }
+    ],
+    revenue: "~$56",
+    planner: {
+      w1: { theme: "CLARITY", days: [
+        "List every area of banking you have worked in: retail banking, lending, mortgage, wealth management, financial planning",
+        "Circle the ONE area where you have helped customers make the most meaningful financial decisions",
+        "Write: I help [who] with [specific financial challenge] so they can [result]",
+        "Research 5 people or families struggling with the financial problem you solve",
+        "List 3 financial questions people ask you constantly outside of work",
+        "Choose your core product: financial literacy guide, budget workbook, or credit repair checklist",
+        "Write your credibility paragraph — your years in banking in 5 sentences",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "I helped people build financial security for years. Now I build my own." },
+      w2: { theme: "CREATE", days: [
+        "Outline your core product: Financial Education Guide or Personal Finance Workbook",
+        "Draft your first worksheet, checklist, or guide section",
+        "Add your branding, name, and contact to your product in Canva",
+        "Write a 3-bullet what-is-included description for your sales page",
+        "Research what financial educators and money coaches charge for similar resources",
+        "Set up Gumroad or Payhip to deliver your product digitally",
+        "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "The financial knowledge I used to serve bank customers can now serve thousands." },
+      w3: { theme: "LAUNCH", days: [
+        "Post on Facebook: share the #1 financial mistake people make that banks see every day",
+        "Join 2 Facebook groups for women, families, or entrepreneurs focused on money and financial freedom",
+        "DM 5 people in your network who have expressed money stress or financial uncertainty",
+        "Record a 90-second video: The one financial conversation most people avoid until it is too late",
+        "Offer your product at a launch price for the first 10 buyers only",
+        "Ask 2 former colleagues or clients to share your offer with their networks",
+        "Follow up with every person who showed interest",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "My financial expertise can change the trajectory of an entire family. That is worth building a business around." },
+      w4: { theme: "GROW", days: [
+        "Create your freebie: 5 Financial Questions Every Family Should Be Able to Answer",
+        "Set up a simple opt-in page using ConvertKit or MailerLite",
+        "Write a 3-email welcome sequence that leads to your core product",
+        "Create your bump offer: a personal budget and debt tracker template pack for $17",
+        "Launch a $5/day Facebook ad targeting families and women focused on financial freedom",
+        "Document your results: what sold, who bought, what questions came up",
+        "Map out Month 2: add your upsell and plan 2 YouTube videos on financial literacy topics",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
+      ], affirmation: "I spent years helping others get financially protected. Now I build financial freedom for myself." }
+    }
+  },
   "Customer Service & Client Relations": {
     core: { title: "The Client Experience Expert's Guide to Launching a Customer Success Consulting or Coaching Business", price: "$37", desc: "Package your retention, support, and experience expertise into a digital consulting offer" },
     bump: { title: "10 Customer Experience Frameworks That Turn One-Time Buyers Into Loyal Brand Advocates", price: "$17", desc: "Done-for-you client retention scripts and experience templates" },
@@ -2447,6 +2845,8 @@ var SKILL_DATA = {
         "Choose your core product: client onboarding guide, retention framework, or customer experience audit checklist",
         "Write your credibility paragraph, your client satisfaction wins and retention results in 5 sentences",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I have turned unhappy customers into loyal advocates. Now I advocate for my own success." },
       w2: { theme: "CREATE", days: [
@@ -2457,6 +2857,8 @@ var SKILL_DATA = {
         "Research what customer success consultants and client experience coaches charge for similar resources",
         "Set up Gumroad or Payhip to deliver your product digitally",
         "Send your draft to 1 trusted colleague for honest feedback",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "The client experiences I designed for others are now the template for building my own business." },
@@ -2469,6 +2871,8 @@ var SKILL_DATA = {
         "Ask 2 former colleagues to share your offer with their entrepreneur networks",
         "Follow up with every person who showed interest",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "Great client experiences are the highest-leverage investment a business can make. I teach that." },
       w4: { theme: "GROW", days: [
@@ -2479,6 +2883,8 @@ var SKILL_DATA = {
         "Launch a $5/day Facebook or Instagram ad targeting coaches, consultants, and service business owners",
         "Document your results: what sold, who bought, what questions came up",
         "Map out Month 2: add your upsell and plan 2 pieces of content on client retention and referrals",
+        "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
+        "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward",
         "Review your 30-day journey: what worked, what you learned, and what you will do differently in Month 2",
         "Set your Month 2 goals: your next product, your first upsell, and your content plan going forward"
       ], affirmation: "I know what makes clients stay. That knowledge is the product that builds my freedom." }
@@ -2741,46 +3147,22 @@ function submitEmailGate() {
   document.getElementById('emailGate').classList.remove('show');
 
   // Submit to GHL webhook — paste your GHL form webhook URL below
-  // Submit to GHL via hidden iframe form
-  try {
-    var iframeName = 'ghl_submit_' + Date.now();
-    var iframe = document.createElement('iframe');
-    iframe.name = iframeName;
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-
-    var form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://link.leadstacker.io/widget/form/Q11ZhyPcGHV3YI7Qmuwe';
-    form.target = iframeName;
-
-    var fields = {
-      'first_name': name,
-      'email': email,
-      'source': 'Career-to-Creator Freedom Blueprint',
-      'expertise': selectedSkill || '',
-      'platform': selectedPlatform || ''
-    };
-
-    Object.keys(fields).forEach(function(key) {
-      var input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = key;
-      input.value = fields[key];
-      form.appendChild(input);
-    });
-
-    document.body.appendChild(form);
-    form.submit();
-
-    setTimeout(function() {
-      if (form.parentNode) form.parentNode.removeChild(form);
-      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-    }, 5000);
-  } catch(err) {
-    console.log('GHL submit error:', err);
-  }
-
+  // Submit to Make.com webhook — forwards to GHL
+  fetch('https://hook.us2.make.com/l5tuq3d2goyu14bfehx6mrk5dodlhfe4', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      firstName: name,
+      email: email,
+      source: 'Career-to-Creator Freedom Blueprint',
+      expertise: selectedSkill || '',
+      platform: selectedPlatform || ''
+    })
+  }).then(function() {
+    console.log('Lead sent to Make.com successfully');
+  }).catch(function(err) {
+    console.log('Make webhook error:', err);
+  });
   // Proceed to generate the report
   generateReport();
 }
