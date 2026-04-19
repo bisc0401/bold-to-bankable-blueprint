@@ -2605,20 +2605,18 @@ function submitEmailGate() {
   document.getElementById('emailGate').classList.remove('show');
 
   // Submit to GHL webhook — paste your GHL form webhook URL below
-  var GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
-  if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL_HERE') {
-    fetch(GHL_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName: name,
-        email: email,
-        source: 'Career-to-Creator Freedom Blueprint',
-        expertise: selectedSkill,
-        platform: selectedPlatform
-      })
-    }).catch(function(err) { console.log('GHL webhook error:', err); });
-  }
+  // Submit to GHL Form
+  var GHL_FORM_URL = 'https://link.leadstacker.io/widget/form/Q11ZhyPcGHV3YI7Qmuwe';
+  var formData = new FormData();
+  formData.append('first_name', name);
+  formData.append('email', email);
+  formData.append('source', 'Career-to-Creator Freedom Blueprint');
+  formData.append('expertise', selectedSkill);
+  formData.append('platform', selectedPlatform);
+  fetch(GHL_FORM_URL, {
+    method: 'POST',
+    body: formData
+  }).catch(function(err) { console.log('GHL form error:', err); });
 
   // Proceed to generate the report
   generateReport();
@@ -2648,7 +2646,7 @@ function buildPlannerTab() {
       var dn = w.start + i;
       return '<div class="day-item"><input type="checkbox" class="day-check" id="chk' + dn + '"><div class="day-num">D' + dn + '</div><label class="day-text" for="chk' + dn + '" style="cursor:pointer;flex:1;">' + day + '</label></div>';
     }).join('');
-    return '<div class="week-block"><div class="week-header"><div class="week-badge">' + w.label + '</div><div class="week-theme">' + wk.theme + '</div></div><p style="font-size:13px;color:#7a7a7a;margin:4px 0 12px;font-style:italic;">' + w.desc + '</p><div class="day-list">' + days + '</div><div class="week-affirmation">' + wk.affirmation + '</div></div>';
+    return '<div class="week-block"><div class="week-header"><div class="week-badge">' + w.label + '</div><div class="week-theme">' + wk.theme + '</div></div><p style="font-size:13px;color:#7a7a7a;margin:4px 0 12px;font-style:italic;">' + w.desc + '</p><div class="day-list">' + days + '</div><div class="week-affirmation"><span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;display:block;margin-bottom:6px;font-style:normal;">Motivation</span>' + wk.affirmation + '</div></div>';
   }).join('');
 }
 
